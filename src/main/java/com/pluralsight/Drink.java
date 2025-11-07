@@ -5,8 +5,8 @@ public class Drink extends Product{
     private String size;
     private String flavor;
 
-    public Drink(double price, String description, String size, String flavor) {
-        super(price, description);
+    public Drink(String size, String flavor) {
+        super(0, "");
         this.size = size;
         this.flavor = flavor;
     }
@@ -30,12 +30,30 @@ public class Drink extends Product{
 
     @Override
     public double getPrice() {
-        return 0;
+
+        double price = 0;
+
+        switch (size){
+            case "small":
+                return price= 2.00;
+
+            case "medium":
+                return price= 2.50;
+
+            case "large":
+                return price= 3.00;
+        }
+        return price;
     }
 
     @Override
     public String getDescription() {
         return "";
+    }
+
+    @Override
+    public String toString() {
+        return "Drink size: " + size + " | " + "Flavor: " + flavor + " | " +"price: "+ price;
     }
 
     //PRICE CALC

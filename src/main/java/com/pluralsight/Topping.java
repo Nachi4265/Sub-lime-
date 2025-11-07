@@ -3,13 +3,13 @@ package com.pluralsight;
 public class Topping {
 
     private String name; //What is the topping
-    private String Category;//Premium or Regular
+    private String category;//Premium or Regular
     boolean isExtra; //true or false
 
-    public Topping(String name, String category, boolean isExtra) {
+    public Topping(String name, String category,boolean isExtra) {
         this.name = name;
-        this.Category = category;
-        this.isExtra = isExtra;
+        this.category = category;
+        isExtra = isExtra;
     }
 
     public String getName() {
@@ -21,11 +21,11 @@ public class Topping {
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        category = category;
     }
 
     public boolean isExtra() {
@@ -34,5 +34,14 @@ public class Topping {
 
     public void setExtra(boolean extra) {
         isExtra = extra;
+    }
+
+    @Override
+    public String toString() {
+        return "Topping{" +
+                "name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", isExtra=" + isExtra +
+                '}';
     }
 }

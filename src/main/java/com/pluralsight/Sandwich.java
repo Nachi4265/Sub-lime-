@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich extends Product{
@@ -7,16 +8,21 @@ public class Sandwich extends Product{
     private String size;
     private String breadType;
     private boolean isToasted;
-    List<Topping>toppings;
+    private List<Topping> sandwichToppings;
 
-    public Sandwich(double price, String description, String size, String breadType, boolean isToasted, List<Topping> toppings) {
-        super(price, description);
+
+
+    //CONSTRUCTOR
+    public Sandwich(String size, String breadType) {
+        super(0, "");
         this.size = size;
         this.breadType = breadType;
         this.isToasted = isToasted;
-        this.toppings = toppings;
+        this.sandwichToppings = new ArrayList<>();
     }
 
+
+    //GETTERS AND SETTERS
     public String getSize() {
         return size;
     }
@@ -42,17 +48,21 @@ public class Sandwich extends Product{
     }
 
     public List<Topping> getToppings() {
-        return toppings;
+        return sandwichToppings;
     }
 
-    public void setToppings(List<Topping> toppings) {
-        this.toppings = toppings;
+    public void setToppings(ArrayList<Topping> toppings) {
+        this.sandwichToppings = new ArrayList<>(toppings);
     }
 
 
 
-    public void addTopping(List<Topping>toppings){
+
+
+    //Add our toppings to our sandwich-toppings
+    public void addTopping(Topping toppingsToAdd){
         //todo logic to add toppings.
+        sandwichToppings.add(toppingsToAdd);
     }
 
 
@@ -64,5 +74,15 @@ public class Sandwich extends Product{
     @Override
     public String getDescription() {
         return "";
+    }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "size='" + size + '\'' +
+                ", breadType='" + breadType + '\'' +
+                ", isToasted=" + isToasted +
+                ", sandwichToppings=" + sandwichToppings +
+                '}';
     }
 }

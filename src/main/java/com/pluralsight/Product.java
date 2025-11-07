@@ -2,7 +2,7 @@ package com.pluralsight;
 
 public abstract class Product {
 
-    private double price;
+    public double price;
     private String description;
 
     public Product(double price, String description) {
