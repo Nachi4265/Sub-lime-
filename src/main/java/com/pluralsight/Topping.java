@@ -36,12 +36,26 @@ public class Topping {
         isExtra = extra;
     }
 
+
+
+    public double getPrice(){
+
+        return switch (name) {
+            case "steak", "ham", "salami", "roast beef", "chicken", "bacon" -> 1.00;
+            case "american", "provolone", "cheddar", "swiss" -> 0.75;
+            default -> 0;
+        };
+
+    }
+
+
     @Override
     public String toString() {
         return "Topping{" +
                 "name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", isExtra=" + isExtra +
+                ", price =" + getPrice() +
                 '}';
     }
 }
