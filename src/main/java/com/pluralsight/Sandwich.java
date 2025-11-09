@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sandwich extends Product{
 
@@ -84,13 +85,32 @@ public class Sandwich extends Product{
                 break;
         }
 
-
-        // todo if the sandwich price is  a certain size then the price of the toppings is adjusted.
-
-        
+        //Gets the price of all the toppings on the sandwich
         for (Topping topping : sandwichToppings){
-             price = topping.getPrice();
+             price += topping.getPrice();
+
+
+             if(topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 4){
+                 price = price + .50;
+             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 8) {
+                 price = price + 1.00;
+             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 12) {
+                 price = price + 1.50;
+             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 4) {
+                 price = price += .30;
+             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 8) {
+                 price = price += .60;
+             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 12) {
+                 price = price += .90;
+             }else {
+                 price += 0;
+             }
+
         }
+
+        //this only returns toppings that are extra (extra meat , or cheese)
+//        sandwichToppings.stream().filter(topping -> topping.isExtra()).collect(Collectors.toList());
+
 
         return price;
 

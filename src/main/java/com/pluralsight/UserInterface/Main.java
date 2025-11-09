@@ -7,9 +7,16 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        Topping topping = new Topping("swiss","premium",false);
+//        Topping cheese = new Topping("swiss","premium",false);
+          Topping top = new Topping("ham","meat",false);
+            Topping top2 = new Topping("ham","meat",true);
 
-        Sandwich sandwich = new Sandwich(4,"White");
+
+        Sandwich sandwich = new Sandwich(8,"White");
+//        sandwich.addTopping(cheese);
+        sandwich.addTopping(top);
+        sandwich.addTopping(top2);
+
 
         System.out.println(sandwich);
 
