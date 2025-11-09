@@ -65,6 +65,7 @@ public class Sandwich extends Product{
     }
 
     //todo Does my Sandwich size determine the price change of my toppings..?
+    //todo come back too. 
     @Override
     public double getPrice() {
 
@@ -87,7 +88,7 @@ public class Sandwich extends Product{
 
         //Gets the price of all the toppings on the sandwich
         for (Topping topping : sandwichToppings){
-             price += topping.getPrice();
+             price += topping.getPrice(size);
 
 
              if(topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 4){

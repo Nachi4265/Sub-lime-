@@ -38,17 +38,17 @@ public class Topping {
 
 
 
-    public double getPrice(){
-
-        //If one of the topping names match it will use the following price
-        double price = switch (name) {
-            case "steak", "ham", "salami", "roast beef", "chicken", "bacon" -> 1.00;
-            case "american", "provolone", "cheddar", "swiss" -> 0.75;
-            default -> 0;
-        };
-        
-        return price;
-    }
+//    public double getPrice(Sandwich size){
+//
+//        //If one of the topping names match it will use the following price
+//        double price = switch (name) {
+//            case "steak", "ham", "salami", "roast beef", "chicken", "bacon" -> 1.00;
+//            case "american", "provolone", "cheddar", "swiss" -> 0.75;
+//            default -> 0;
+//        };
+//
+//        return price;
+//    }
 
 
     @Override
