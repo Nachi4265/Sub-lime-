@@ -38,17 +38,58 @@ public class Topping {
 
 
 
-//    public double getPrice(Sandwich size){
-//
-//        //If one of the topping names match it will use the following price
-//        double price = switch (name) {
-//            case "steak", "ham", "salami", "roast beef", "chicken", "bacon" -> 1.00;
-//            case "american", "provolone", "cheddar", "swiss" -> 0.75;
-//            default -> 0;
-//        };
-//
-//        return price;
-//    }
+    public double getPrice(int size) {
+
+        //If one of the topping names match it will use the following price
+        double price = 0;
+
+        switch (category) {
+
+            //is it meat??
+            case "meat":
+                if(size == 4){
+                    price = 1.00;
+                } else if (size == 8) {
+                    price = 2.00;
+                } else if (size == 12) {
+                    price = 3.00;}
+
+
+                if (isExtra && size == 4) {
+                    price += .50;
+                } else if (isExtra && size == 8) {
+                    price += 1.00;
+                } else if (isExtra && size == 12) {
+                    price += 1.50;
+                }
+                break;
+
+
+            //Is it Cheese??
+            case "cheese":
+
+                if(size == 4){
+                    price = .75;
+                } else if (size == 8) {
+                    price = 1.50;
+                } else if (size == 12) {
+                    price = 2.25;}
+
+
+                if (isExtra && size == 4) {
+                    price += .30;
+                } else if (isExtra && size == 8) {
+                    price += .60;
+                } else if (isExtra && size == 12) {
+                    price += .90;
+                }
+                break;
+
+            default:
+                price = 0;
+        }
+        return price;
+    }
 
 
     @Override
@@ -57,7 +98,6 @@ public class Topping {
                 "name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", isExtra=" + isExtra +
-                ", price =" + getPrice() +
                 '}';
     }
 }

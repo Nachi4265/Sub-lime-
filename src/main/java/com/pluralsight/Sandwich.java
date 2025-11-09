@@ -57,15 +57,43 @@ public class Sandwich extends Product{
     }
 
 
-    //Add our toppings to our sandwich-toppings
+    //ADD METHODS -----------------------------------------------------------------------------------------------
+
+    //Add Meats
+    public void addMeat(Topping meat){
+        sandwichToppings.add(meat);
+    }
+
+    public void addExtraMeat(Topping extraMeat){
+        sandwichToppings.add(extraMeat);
+    }
+
+
+    //Add Cheeses
+    public void addCheese(Topping cheese){
+        sandwichToppings.add(cheese);
+    }
+
+    public void addExtraCheese(Topping extraCheese){
+        sandwichToppings.add(extraCheese);
+    }
+
+
+    //add regular toppings
     public void addTopping(Topping toppingsToAdd){
         //todo logic to add toppings.
         sandwichToppings.add(toppingsToAdd);
 
     }
 
-    //todo Does my Sandwich size determine the price change of my toppings..?
-    //todo come back too. 
+
+
+
+
+    //This one method is trying to do too much!
+    // Make a method that calculates the price for topping and extra toppings that return the price for those,
+    // Then add those the get price method.(return the total price
+
     @Override
     public double getPrice() {
 
@@ -86,35 +114,29 @@ public class Sandwich extends Product{
                 break;
         }
 
-        //Gets the price of all the toppings on the sandwich
-        for (Topping topping : sandwichToppings){
-             price += topping.getPrice(size);
-
-
-             if(topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 4){
-                 price = price + .50;
-             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 8) {
-                 price = price + 1.00;
-             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 12) {
-                 price = price + 1.50;
-             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 4) {
-                 price = price += .30;
-             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 8) {
-                 price = price += .60;
-             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 12) {
-                 price = price += .90;
-             }else {
-                 price += 0;
-             }
-
-        }
-
-        //this only returns toppings that are extra (extra meat , or cheese)
-//        sandwichToppings.stream().filter(topping -> topping.isExtra()).collect(Collectors.toList());
-
-
+//        //Gets the price of all the toppings on the sandwich
+//        for (Topping topping : sandwichToppings){
+//             price += topping.getPrice();
+//
+//
+//             if(topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 4){
+//                 price = price + .50;
+//             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 8) {
+//                 price = price + 1.00;
+//             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 12) {
+//                 price = price + 1.50;
+//             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 4) {
+//                 price = price += .30;
+//             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 8) {
+//                 price = price += .60;
+//             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 12) {
+//                 price = price += .90;
+//             }else {
+//                 price += 0;
+//             }
+//
+//        }
         return price;
-
     }
 
     @Override
