@@ -4,8 +4,8 @@ public class Chip extends Product {
 
     private String chipName;
 
-    public Chip(double price, String description, String chipName) {
-        super(price, description);
+    public Chip( String description, String chipName) {
+        super(1.50,"Chips");
         this.chipName = chipName;
     }
 
@@ -26,6 +26,6 @@ public class Chip extends Product {
 
     @Override
     public String getDescription() {
-        return "";
+        return chipName;
     }
 }

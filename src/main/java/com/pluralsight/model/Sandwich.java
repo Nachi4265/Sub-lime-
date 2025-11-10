@@ -113,34 +113,16 @@ public class Sandwich extends Product {
                 break;
         }
 
-//        //Gets the price of all the toppings on the sandwich
-//        for (Topping topping : sandwichToppings){
-//             price += topping.getPrice();
-//
-//
-//             if(topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 4){
-//                 price = price + .50;
-//             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 8) {
-//                 price = price + 1.00;
-//             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("meat")&&size == 12) {
-//                 price = price + 1.50;
-//             } else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 4) {
-//                 price = price += .30;
-//             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 8) {
-//                 price = price += .60;
-//             }else if (topping.isExtra()&& topping.getCategory().equalsIgnoreCase("cheese")&&size == 12) {
-//                 price = price += .90;
-//             }else {
-//                 price += 0;
-//             }
-//
-//        }
+       //Gets the price of all the toppings on the sandwich based on the sandwiches size
+        for (Topping topping : sandwichToppings){
+             price += topping.getPrice(this.size);
+       }
         return price;
     }
 
     @Override
     public String getDescription() {
-        return "";
+        return this.size + breadType + "with" + sandwichToppings;
     }
 
     @Override
