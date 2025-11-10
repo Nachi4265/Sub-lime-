@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.model;
 
 public class Chip extends Product {
 

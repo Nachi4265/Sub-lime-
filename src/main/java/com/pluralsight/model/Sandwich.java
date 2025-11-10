@@ -1,10 +1,9 @@
-package com.pluralsight;
+package com.pluralsight.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class Sandwich extends Product{
+public class Sandwich extends Product {
 
     private int size;
     private String breadType;
