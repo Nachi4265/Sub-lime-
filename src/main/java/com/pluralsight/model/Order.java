@@ -1,20 +1,73 @@
 package com.pluralsight.model;
 
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 
-    //todo make List of products on order
-    //List of sandwiches , list of chips and drinks,
+    //List of order items
+    private List<Product>products;
+    private LocalDateTime date;
+
+
+    //CONSTRUCTOR
+    public Order(List<Product> products, LocalDateTime date) {
+        this.products = new ArrayList<>();
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+
+
+    //Add products to order.
+    public void addProduct(Product product){
+        products.add(product);
+    }
+
+    //Get the total of all the items.
+    public double calculateTotal(){
+        return products.stream().mapToDouble(products-> products.getPrice()).sum();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "products=" + products +
+                ", date=" + date +
+                '}';
+    }
+
     //calculate the total price.
-    
+
     /*A customer can place an order with 0 or more sandwiches on the order. If a
     customer places an order with 0 sandwiches, they must purchase chips or a drink.
+
     When a customer places the order, they should be prompted to customize each sandwich one at a time.
     A customer should also be able to add drinks and chips to their order.
+
     When they have completed their order, the application should display the order
     details, including the list of sandwiches that were ordered with all the toppings
     so that the customer can verify that the order is correct. The screen should also
     display the total cost of the order.*/
+
+
+
 
 }

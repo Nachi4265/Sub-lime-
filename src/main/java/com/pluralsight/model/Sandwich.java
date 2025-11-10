@@ -52,46 +52,18 @@ public class Sandwich extends Product {
     }
 
     public void setToppings(ArrayList<Topping> toppings) {
-        this.sandwichToppings = new ArrayList<>(toppings);
+        //this.sandwichToppings = new ArrayList<>(toppings);
+        this.sandwichToppings = toppings;
     }
 
 
-    //ADD METHODS -----------------------------------------------------------------------------------------------
+    //ADD METHOD -------------------------------------------------------------------------------------------------------
 
-    //Add Meats
-    public void addMeat(Topping meat){
-        sandwichToppings.add(meat);
-    }
-
-    public void addExtraMeat(Topping extraMeat){
-        sandwichToppings.add(extraMeat);
-    }
-
-
-    //Add Cheeses
-    public void addCheese(Topping cheese){
-        sandwichToppings.add(cheese);
-    }
-
-    public void addExtraCheese(Topping extraCheese){
-        sandwichToppings.add(extraCheese);
-    }
-
-
-    //add regular toppings
     public void addTopping(Topping toppingsToAdd){
         //todo logic to add toppings.
         sandwichToppings.add(toppingsToAdd);
 
     }
-
-
-
-
-
-    //This one method is trying to do too much!
-    // Make a method that calculates the price for topping and extra toppings that return the price for those,
-    // Then add those the get price method.(return the total price
 
     @Override
     public double getPrice() {
