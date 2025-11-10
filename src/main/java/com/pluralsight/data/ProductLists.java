@@ -3,7 +3,7 @@ package com.pluralsight.data;
 public class ProductLists {
 
     //Sandwich components
-    public static final String[] bread = {"White", "Wheat", "Rye", "Wrap"};
+    public static final String[] bread = {" 1 )-White", " 2 )-Wheat", " 3 )- Rye", " 4 ) - Wrap"};
 
     public static final String[] sizes = {"4\"", "8\"", "12\""};
 

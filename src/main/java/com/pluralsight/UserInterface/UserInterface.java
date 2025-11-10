@@ -1,6 +1,7 @@
 package com.pluralsight.UserInterface;
 
 import com.pluralsight.data.ProductLists;
+import com.pluralsight.model.Sandwich;
 
 import java.util.Arrays;
 
@@ -8,6 +9,8 @@ public class UserInterface {
 
     ProductLists productLists;
 
+
+    //HOME SCREEN
     public void homeScreen() {
 
 
@@ -36,6 +39,8 @@ public class UserInterface {
         }
     }
 
+
+    //NEW ORDER SCREEN
     private void startNewOrderScreen() {
 
 
@@ -77,52 +82,8 @@ public class UserInterface {
     }
 
 
-
-
-
-    // DRINK PRODUCT MENU
-    private void addDrinkScreen() {
-        while (true) {
-            String drinkScreen = """
-                    ===================| Order Screen |======================
-                    1 - select Size \n
-                    2 - Select Flavor \n
-                    3 -return \n
-                    """;
-
-            System.out.println(drinkScreen);
-
-            int command = InputCollector.promptForInt("Enter a number command");
-
-            switch (command) {
-                case 1:
-                    selectDrinkSize();
-                    break;
-                case 2:
-                    selectDrinkFlavor();
-                    break;
-                default:
-                    System.out.println("Invalid Input");
-                    break;
-            }
-
-        }
-
-
-    }
-
-    private void checkoutScreen() {
-    }
-
-    private void addChipsScreen() {
-    }
-
-
-
     // SANDWICH PRODUCT MENU
     private void addSandwichScreen() {
-
-
         while (true) {
             String sandwichSelectionScreen = """
                     ===================| Sandwich Screen |======================
@@ -142,10 +103,10 @@ public class UserInterface {
 
             switch (command) {
                 case 1:
-                    selectBread();
+                    selectSize();
                     break;
                 case 2:
-                    selectSize();
+                    selectBread();
                     break;
                 case 3:
                     addMeat();
@@ -172,8 +133,7 @@ public class UserInterface {
     }
 
 
-
-    //SANDWICH MENU OPTIONS
+    //SANDWICH SCREEN MENU OPTIONS
     private void toastSandwich() {
     }
 
@@ -190,9 +150,146 @@ public class UserInterface {
     }
 
     private void selectSize() {
+
+        System.out.println("BREAD SIZE");
+        System.out.println(Arrays.toString(ProductLists.sizes));
+        int sizeChoice = InputCollector.promptForInt("Which bread type would you like? ");
+
+        int sandwichLength = 0;
+
+        switch (sizeChoice){
+
+            case 1:
+                sandwichLength = 4;
+                break;
+            case 2:
+                sandwichLength = 8;
+                break;
+            case 3:
+                sandwichLength = 12;
+                break;
+            default:
+                System.out.println("invalid choice");
+        }
+
+
+
+        Sandwich sandwich = new Sandwich(sandwichLength,"");
     }
 
     private void selectBread() {
+        System.out.println("BREAD OPTIONS");
         System.out.println(Arrays.toString(ProductLists.bread));
+        int sizeChoice = InputCollector.promptForInt("Which bread type would you like? ");
+
+        String breadChoice;
+
+        switch (sizeChoice){
+
+            case 1:
+                breadChoice = "white";
+                break;
+            case 2:
+                breadChoice = "wheat";
+                break;
+            case 3:
+                breadChoice = "rye";
+                break;
+            case 4:
+                breadChoice = "wrap";
+            default:
+                System.out.println("invalid choice");
+
+                
+        }
+
+
     }
+
+
+
+
+
+    // DRINK PRODUCT MENU
+    private void addDrinkScreen() {
+        while (true) {
+            String drinkScreen = """
+                    ===================| Order Screen |======================
+                    1 - select Size \n
+                    2 - Select Flavor \n
+                    3 -return \n
+                    """;
+
+            System.out.println(drinkScreen);
+
+            int command = InputCollector.promptForInt("Enter a number command");
+
+            switch (command) {
+                case 1:
+                    selectDrinkSize();
+                    break;
+                case 2:
+                    selectDrinkFlavor();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
+        }
+    }
+
+    private void selectDrinkFlavor() {
+    }
+
+    private void selectDrinkSize(){}
+
+
+
+
+    // CHIPS PRODUCT MENU
+    private void addChipsScreen() {
+        while (true) {
+            String chipsScreen = """
+                    ===================| Order Screen |======================
+                    1 - select \n
+                    2 - Select Flavor \n
+                    3 - return \n
+                    """;
+
+            System.out.println(chipsScreen);
+
+            int command = InputCollector.promptForInt("Enter a number command");
+
+            switch (command) {
+                case 1:
+                    selectDrinkSize();
+                    break;
+                case 2:
+                    selectDrinkFlavor();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+    //CHECKOUT SCREEN
+    private void checkoutScreen() {
+    }
+
+
+
+
 }

@@ -4,7 +4,7 @@ public class Topping {
 
     private String name; //What is the topping
     private String category;//Premium or Regular
-    boolean isExtra; //true or false
+    private boolean isExtra; //true or false
 
     public Topping(String name, String category,boolean isExtra) {
         this.name = name;
