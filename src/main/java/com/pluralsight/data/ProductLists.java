@@ -27,6 +27,10 @@ public class ProductLists {
 
     public static final String[] sides = {"Au Jus", "Sauce"};
 
+
+
+
+
     // Other products (chips and drinks)
     public static final String[] chipTypes = {
             "BBQ", "Sour Cream & Onion", "Salt & Vinegar",

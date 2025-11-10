@@ -99,12 +99,6 @@ public class Sandwich extends Product {
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "size='" + size + '\'' +
-                ", breadType='" + breadType + '\'' +
-                ", isToasted=" + isToasted +
-                ", sandwichToppings=" + sandwichToppings +
-                ", sandwich price=" + getPrice() +
-                '}';
+        return breadType + " Sandwich with " + sandwichToppings + "sandwich price: " + getPrice();
     }
 }

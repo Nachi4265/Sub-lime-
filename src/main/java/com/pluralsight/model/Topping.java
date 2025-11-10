@@ -94,10 +94,6 @@ public class Topping {
 
     @Override
     public String toString() {
-        return "Topping{" +
-                "name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", isExtra=" + isExtra +
-                '}';
+        return name + " ";
     }
 }
