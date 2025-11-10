@@ -1,6 +1,5 @@
 package com.pluralsight.model;
 
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,9 @@ public class Order {
         this.products = new ArrayList<>();
     }
 
+
+
+    //GETTERS AND SETTERS
     public List<Product> getProducts() {
         return products;
     }
@@ -42,8 +44,30 @@ public class Order {
 
     //Get the total of all the items.
     public double calculateTotal(){
-        return products.stream().mapToDouble(products-> products.getPrice()).sum();
+        return products.stream().mapToDouble(products -> products.getPrice()).sum();
     }
+
+    //VALID ORDER?
+    //A customer can place an order with 0 or more sandwiches on the order. If a
+    //customer places an order with 0 sandwiches, they must purchase chips or a drink.
+    public boolean isValidOrder(){
+
+
+       //boolean variable that checks if our List of products has a instanceof a Sandwich
+       boolean hasSandwich = products.stream().anyMatch(product -> product instanceof Sandwich);
+
+       //If statements that will determine if our order has a sandwich or not.
+       if(hasSandwich){
+
+           return hasSandwich;
+
+       }else{
+           return false;
+           //add chips or drink
+       }
+
+    }
+
 
 
     @Override
@@ -54,12 +78,13 @@ public class Order {
                 '}';
     }
 
-    //calculate the total price.
 
-    /*A customer can place an order with 0 or more sandwiches on the order. If a
-    customer places an order with 0 sandwiches, they must purchase chips or a drink.
 
-    When a customer places the order, they should be prompted to customize each sandwich one at a time.
+
+
+
+
+    /* When a customer places the order, they should be prompted to customize each sandwich one at a time.
     A customer should also be able to add drinks and chips to their order.
 
     When they have completed their order, the application should display the order
