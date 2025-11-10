@@ -13,7 +13,13 @@ public class Order {
 
     //CONSTRUCTOR
     public Order(List<Product> products, LocalDateTime date) {
+        this.products = products;
+        this.date = date;
+    }
+
+    public Order() {
         this.products = new ArrayList<>();
+        this.date = LocalDateTime.now();
     }
 
 
@@ -55,13 +61,17 @@ public class Order {
 
        //boolean variable that checks if our List of products has a instanceof a Sandwich
        boolean hasSandwich = products.stream().anyMatch(product -> product instanceof Sandwich);
+       boolean hasChips = products.stream().anyMatch(product -> product instanceof Chip);
+       boolean hasDrink = products.stream().anyMatch(product -> product instanceof Drink);
 
        //If statements that will determine if our order has a sandwich or not.
        if(hasSandwich){
 
-           return hasSandwich;
+           return true;
 
-       }else{
+       } else if (hasChips || hasDrink) {
+           return true;
+       }else {
            return false;
            //add chips or drink
        }
