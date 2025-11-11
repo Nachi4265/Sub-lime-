@@ -22,10 +22,8 @@ public class ProductLists {
 
     public static final String[] sauces = {
             "1)-Mayo", "2)-Mustard", "3)-Ketchup", "4)-Ranch",
-            "5)-Thousand Islands", "6)-Vinaigrette"
+            "5)-Thousand Islands", "6)-Vinaigrette","7)-Au Jus"
     };
-
-    public static final String[] sides = {"1)-Au Jus", "2)-Sauce"};
 
 
 

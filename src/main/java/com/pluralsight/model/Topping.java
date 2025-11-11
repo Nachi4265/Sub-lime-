@@ -12,6 +12,12 @@ public class Topping {
         this.isExtra = isExtra;
     }
 
+    public Topping() {
+        this.name = name;
+        this.category = category;
+        this.isExtra = isExtra;
+    }
+
     public String getName() {
         return name;
     }

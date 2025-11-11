@@ -3,6 +3,7 @@ package com.pluralsight.UserInterface;
 import com.pluralsight.data.ProductLists;
 import com.pluralsight.data.Order;
 import com.pluralsight.model.Sandwich;
+import com.pluralsight.model.Topping;
 
 import java.util.Arrays;
 
@@ -38,6 +39,7 @@ public class UserInterface {
             }
         }
     }
+
 
 
     //NEW ORDER SCREEN
@@ -84,6 +86,8 @@ public class UserInterface {
     }
 
 
+
+
     // SANDWICH PRODUCT MENU
     private void addSandwichScreen(){
 
@@ -107,49 +111,193 @@ public class UserInterface {
 
             int command = InputCollector.promptForInt("Enter a number command");
 
-//            switch (command) {
-//                case 1:
-//                    selectSize();
-//                    break;
-//                case 2:
-//                    selectBread();
-//                    break;
-//                case 3:
-//                    addMeat();
-//                    break;
-//                case 4:
-//                    addCheese();
-//                    break;
-//                case 5:
-//                    addTopping();
-//                    break;
-//                case 6:
-//                    addSauce();
-//                    break;
-//                case 7:
-//                    toastSandwich();
-//                    break;
-//                case 8:
-//                    return;
-//                default:
-//                    System.out.println("Invalid Input");
-//                    break;
-//            }
+            switch (command) {
+                case 1:
+                    selectSize();
+                    break;
+                case 2:
+                    selectBread();
+                    break;
+                case 3:
+                    addMeat();
+                    break;
+                case 4:
+                    addCheese();
+                    break;
+                case 5:
+                    addTopping();
+                    break;
+                case 6:
+                    addSauce();
+                    break;
+                case 7:
+                    toastSandwich();
+                    break;
+                case 8:
+                    return;
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
         }
     }
 
-
     //SANDWICH SCREEN MENU OPTIONS
     private void toastSandwich(Sandwich sandwich) {
+        System.out.println("TOASTED BREAD?");
+        String answer = InputCollector.promptForString("Would you like your sandwich toasted?(Y/N)");
+        if (answer.equalsIgnoreCase("y")){
+            sandwich.setToasted(true);
+        }
     }
 
     private void addSauce(Sandwich sandwich) {
+        System.out.println("SAUCE OPTIONS");
+        System.out.println(Arrays.toString(ProductLists.sauces));
+        int choice = InputCollector.promptForInt("Which sauce would you like? ");
+
+        String sauceName = "";
+
+        switch (choice){
+
+            case 1:
+                sauceName = "mayo";
+                System.out.println(" mayo selected! ");
+                break;
+            case 2:
+                sauceName = "mustard";
+                System.out.println(" mustard selected! ");
+                break;
+            case 3:
+                sauceName = "ketchup";
+                System.out.println(" ketchup selected! ");
+                break;
+            case 4:
+                sauceName = "ranch";
+                System.out.println(" ranch selected! ");
+                break;
+            case 5:
+                sauceName = "thousand islands";
+                System.out.println(" thousand islands selected! ");
+                break;
+            case 6:
+                sauceName = "vinaigrette";
+                System.out.println(" vinaigrette selected! ");
+                break;
+            case 7:
+                sauceName = "au jus";
+                System.out.println(" au jus selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+                return;
+        }
+
+        //Make a new topping (sauces are free)
+        Topping topping = new Topping(sauceName, "sauce", false);
+
+        //Topping is added to our sandwich
+        sandwich.addTopping(topping);
     }
 
     private void addTopping(Sandwich sandwich) {
+        System.out.println("REGULAR TOPPING OPTIONS");
+        System.out.println(Arrays.toString(ProductLists.regularToppings));
+        int choice = InputCollector.promptForInt("Which topping would you like? ");
+
+        String toppingName = "";
+
+        switch (choice){
+
+            case 1:
+                toppingName = "lettuce";
+                System.out.println(" lettuce selected! ");
+                break;
+            case 2:
+                toppingName = "peppers";
+                System.out.println(" peppers selected! ");
+                break;
+            case 3:
+                toppingName = "onions";
+                System.out.println(" onions selected! ");
+                break;
+            case 4:
+                toppingName = "tomatoes";
+                System.out.println(" tomatoes selected! ");
+                break;
+            case 5:
+                toppingName = "jalapeños";
+                System.out.println(" jalapeños selected! ");
+                break;
+            case 6:
+                toppingName = "cucumbers";
+                System.out.println(" cucumbers selected! ");
+                break;
+            case 7:
+                toppingName = "pickles";
+                System.out.println(" pickles selected! ");
+                break;
+            case 8:
+                toppingName = "guacamole";
+                System.out.println(" guacamole selected! ");
+                break;
+            case 9:
+                toppingName = "mushrooms";
+                System.out.println(" mushrooms selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+                return;
+        }
+
+        //Make a new topping to add based on what they chose (regular toppings are free)
+        Topping topping = new Topping(toppingName, "regular", false);
+
+        //Topping is added to our sandwich
+        sandwich.addTopping(topping);
     }
 
     private void addCheese(Sandwich sandwich) {
+
+        System.out.println("CHEESE OPTIONS");
+        System.out.println(Arrays.toString(ProductLists.cheese));
+        int choice = InputCollector.promptForInt("Which meat topping would you like? ");
+
+        String sandwichCheeseTopping = "";
+
+        switch (choice){
+
+
+            case 1:
+                sandwichCheeseTopping = "American";
+                System.out.println(" American selected! ");
+                break;
+            case 2:
+                sandwichCheeseTopping = "Provolone";
+                System.out.println(" Provolone selected! ");
+                break;
+            case 3:
+                sandwichCheeseTopping = "Cheddar";
+                System.out.println(" Cheddar selected! ");
+                break;
+            case 4:
+                sandwichCheeseTopping = "Swiss";
+                System.out.println(" Swiss selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+        }
+
+
+        Topping topping = new Topping(sandwichCheeseTopping,"cheese",false);
+
+        String wantExtra = InputCollector.promptForString("Want extra cheese? (Y/N)");
+        if(wantExtra.equalsIgnoreCase("Y")){
+            topping.setExtra(true);
+        }
+
+        sandwich.addTopping(topping);
+
     }
 
     private void addMeat(Sandwich sandwich) {
@@ -188,7 +336,18 @@ public class UserInterface {
             default:
                 System.out.println("invalid choice");
         }
-        //sandwich.addTopping();
+
+        //Make a new topping to add based on what they chose (String for the name)
+        Topping topping = new Topping(sandwichMeatTopping,"meat",false);
+
+        //Ask if they want extra
+        String wantExtra = InputCollector.promptForString("Want Extra meat? (Y/N)");
+        if(wantExtra.equalsIgnoreCase("Y")){
+            topping.setExtra(true);
+        }
+
+        //Topping is added to out sandwich
+        sandwich.addTopping(topping);
     }
 
     private void selectSize(Sandwich sandwich) {
