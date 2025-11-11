@@ -1,7 +1,7 @@
 package com.pluralsight.UserInterface;
 
 import com.pluralsight.data.ProductLists;
-import com.pluralsight.model.Order;
+import com.pluralsight.data.Order;
 import com.pluralsight.model.Sandwich;
 
 import java.util.Arrays;

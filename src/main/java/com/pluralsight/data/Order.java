@@ -1,28 +1,37 @@
-package com.pluralsight.model;
+package com.pluralsight.data;
+
+import com.pluralsight.model.Chip;
+import com.pluralsight.model.Drink;
+import com.pluralsight.model.Product;
+import com.pluralsight.model.Sandwich;
 
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Order {
 
     //List of order items
+    //uses Static in order counter starting from 0;
     private List<Product>products;
     private LocalDateTime date;
+    private static int orderCounter = 0;
+    private int orderNumber;
 
 
     //CONSTRUCTOR
-    public Order(List<Product> products, LocalDateTime date) {
+    public Order(List<Product> products, LocalDateTime date,int orderNumber) {
         this.products = products;
         this.date = date;
+        this.orderNumber = orderNumber;
     }
 
     public Order() {
         this.products = new ArrayList<>();
         this.date = LocalDateTime.now();
+        orderCounter++;
+        this.orderNumber = orderCounter;
     }
 
 
@@ -43,6 +52,16 @@ public class Order {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+
 
 
 
@@ -111,7 +130,5 @@ public class Order {
 
         return builder.toString();
     }
-
-
 
 }
