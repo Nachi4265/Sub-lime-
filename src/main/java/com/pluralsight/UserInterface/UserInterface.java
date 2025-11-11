@@ -1,18 +1,18 @@
 package com.pluralsight.UserInterface;
 
 import com.pluralsight.data.ProductLists;
+import com.pluralsight.model.Order;
 import com.pluralsight.model.Sandwich;
 
 import java.util.Arrays;
 
 public class UserInterface {
 
-    ProductLists productLists;
+
 
 
     //HOME SCREEN
     public void homeScreen() {
-
 
         while (true) {
             String homeScreen = """
@@ -43,6 +43,8 @@ public class UserInterface {
     //NEW ORDER SCREEN
     private void startNewOrderScreen() {
 
+        //When the start Order screen runs a new order is created.
+        Order currentOrder = new Order();
 
         while (true) {
             String orderScreen = """
@@ -83,12 +85,16 @@ public class UserInterface {
 
 
     // SANDWICH PRODUCT MENU
-    private void addSandwichScreen() {
-        while (true) {
+    private void addSandwichScreen(){
+
+        //Create a new Sandwich when selected.
+        Sandwich sandwich = new Sandwich();
+
+        while (true){
             String sandwichSelectionScreen = """
                     ===================| Sandwich Screen |======================
-                    1 - Select bread\n
-                    2 - Select size\n
+                    1 - Select size\n
+                    2 - Select bread\n
                     3 - Add meats \n
                     4 - Add cheese\n
                     5 - Add regular Topping\n
@@ -134,76 +140,113 @@ public class UserInterface {
 
 
     //SANDWICH SCREEN MENU OPTIONS
-    private void toastSandwich() {
+    private void toastSandwich(Sandwich sandwich) {
     }
 
-    private void addSauce() {
+    private void addSauce(Sandwich sandwich) {
     }
 
-    private void addTopping() {
+    private void addTopping(Sandwich sandwich) {
     }
 
-    private void addCheese() {
+    private void addCheese(Sandwich sandwich) {
     }
 
-    private void addMeat() {
+    private void addMeat(Sandwich sandwich) {
+        System.out.println("MEAT OPTIONS");
+        System.out.println(Arrays.toString(ProductLists.meats));
+        int choice = InputCollector.promptForInt("Which meat topping would you like? ");
+
+        String sandwichMeatTopping = "";
+
+        switch (choice){
+
+            case 1:
+                sandwichMeatTopping = "steak";
+                System.out.println(" steak selected! ");
+                break;
+            case 2:
+                sandwichMeatTopping = "ham";
+                System.out.println(" ham selected! ");
+                break;
+            case 3:
+                sandwichMeatTopping = "salami";
+                System.out.println(" salami selected! ");
+                break;
+            case 4:
+                sandwichMeatTopping = "roast beef";
+                System.out.println(" roast beef selected! ");
+                break;
+            case 5:
+                sandwichMeatTopping = "chicken";
+                System.out.println(" chicken selected! ");
+                break;
+            case 6:
+                sandwichMeatTopping = "bacon";
+                System.out.println(" bacon selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+        }
+        sandwich.addTopping(sandwichMeatTopping);
     }
 
-    private void selectSize() {
+    private void selectSize(Sandwich sandwich) {
 
         System.out.println("BREAD SIZE");
         System.out.println(Arrays.toString(ProductLists.sizes));
-        int sizeChoice = InputCollector.promptForInt("Which bread type would you like? ");
+        int sizeChoice = InputCollector.promptForInt("Which bread size would you like? ");
 
         int sandwichLength = 0;
 
         switch (sizeChoice){
 
-            case 1:
+            case 4:
                 sandwichLength = 4;
+                System.out.println(" 4 inch bread selected! ");
                 break;
-            case 2:
+            case 8:
                 sandwichLength = 8;
+                System.out.println(" 8 inch bread selected! ");
                 break;
-            case 3:
+            case 12:
                 sandwichLength = 12;
+                System.out.println(" 12 inch bread selected! ");
                 break;
             default:
                 System.out.println("invalid choice");
         }
 
-
-
-        Sandwich sandwich = new Sandwich(sandwichLength,"");
+        //set the length of our sandwich
+        sandwich.setSize(sandwichLength);
     }
 
-    private void selectBread() {
+    private void selectBread(Sandwich sandwich) {
         System.out.println("BREAD OPTIONS");
         System.out.println(Arrays.toString(ProductLists.bread));
         int sizeChoice = InputCollector.promptForInt("Which bread type would you like? ");
 
-        String breadChoice;
+        String breadType = "";
 
         switch (sizeChoice){
 
             case 1:
-                breadChoice = "white";
+                breadType = "white";
                 break;
             case 2:
-                breadChoice = "wheat";
+                breadType = "wheat";
                 break;
             case 3:
-                breadChoice = "rye";
+                breadType = "rye";
                 break;
             case 4:
-                breadChoice = "wrap";
+                breadType = "wrap";
             default:
                 System.out.println("invalid choice");
 
-                
         }
 
-
+        sandwich.setBreadType(breadType);
     }
 
 

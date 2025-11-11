@@ -3,29 +3,29 @@ package com.pluralsight.data;
 public class ProductLists {
 
     //Sandwich components
-    public static final String[] bread = {" 1 )-White", " 2 )-Wheat", " 3 )- Rye", " 4 ) - Wrap"};
+    public static final String[] bread = {"1)-White", "2)-Wheat", "3)- Rye", "4) - Wrap"};
 
     public static final String[] sizes = {"4\"", "8\"", "12\""};
 
     public static final String[] meats = {
-            "Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon"
+            "1)-Steak", "2)-Ham", "3)-Salami", "4)-Roast Beef", "5)-Chicken", "6)-Bacon"
     };
 
     public static final String[] cheese = {
-            "American", "Provolone", "Cheddar", "Swiss"
+            "1)-American", "2)-Provolone", "3)-Cheddar", "4)-Swiss"
     };
 
     public static final String[] regularToppings = {
-            "Lettuce", "Peppers", "Onions", "Tomatoes",
-            "Jalapeños", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"
+            "1)-Lettuce", "2)-Peppers", "3)-Onions", "4)-Tomatoes",
+            "5)-Jalapeños", "6)-Cucumbers", "7)-Pickles", "8)-Guacamole", "9)-Mushrooms"
     };
 
     public static final String[] sauces = {
-            "Mayo", "Mustard", "Ketchup", "Ranch",
-            "Thousand Islands", "Vinaigrette"
+            "1)-Mayo", "2)-Mustard", "3)-Ketchup", "4)-Ranch",
+            "5)-Thousand Islands", "6)-Vinaigrette"
     };
 
-    public static final String[] sides = {"Au Jus", "Sauce"};
+    public static final String[] sides = {"1)-Au Jus", "2)-Sauce"};
 
 
 

@@ -21,6 +21,13 @@ public class Sandwich extends Product {
         this.sandwichToppings = new ArrayList<>();
     }
 
+    public Sandwich(){
+        super(0, "");
+        this.size = size;
+        this.breadType = breadType;
+        this.isToasted = false;
+        this.sandwichToppings = new ArrayList<>();
+    }
 
     //GETTERS AND SETTERS
     public int getSize() {
