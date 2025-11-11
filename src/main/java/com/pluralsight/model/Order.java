@@ -81,21 +81,30 @@ public class Order {
 
     //ORDER DETAILS
     public String getOrderDetails(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-DD HH:mm");
-        String formmatedDateTime = date.format(formatter);
 
-        System.out.println("Order Date: " + formmatedDateTime);
+        StringBuilder builder = new StringBuilder();
+        String orderDetails = "";
 
-        for(Product p :products){
-            return p.getDescription() + calculateTotal();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-DD HH:mm");
+        builder.append("SUB-LIME SANDWICHES");
+        builder.append("\n");
+        builder.append("DATE & TIME" + date);
+        builder.append("\n");
+
+        for(Product p : products){
+            builder.append(p.getDescription()+"\n");
+
+            System.out.println();
+
+            builder.append("Price: $" + p.getPrice()+"\n");
+
         }
+        builder.append("TOTAL: $");
+        builder.append(calculateTotal());
+
+        return orderDetails = builder.toString();
     }
 
-    @Override
-    public String toString() {
-        return "DATE & TIME: " + date + "|" +"\n" + "Items purchased: " + products + "|";
 
-
-    }
 
 }

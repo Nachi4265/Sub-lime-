@@ -107,34 +107,34 @@ public class UserInterface {
 
             int command = InputCollector.promptForInt("Enter a number command");
 
-            switch (command) {
-                case 1:
-                    selectSize();
-                    break;
-                case 2:
-                    selectBread();
-                    break;
-                case 3:
-                    addMeat();
-                    break;
-                case 4:
-                    addCheese();
-                    break;
-                case 5:
-                    addTopping();
-                    break;
-                case 6:
-                    addSauce();
-                    break;
-                case 7:
-                    toastSandwich();
-                    break;
-                case 8:
-                    return;
-                default:
-                    System.out.println("Invalid Input");
-                    break;
-            }
+//            switch (command) {
+//                case 1:
+//                    selectSize();
+//                    break;
+//                case 2:
+//                    selectBread();
+//                    break;
+//                case 3:
+//                    addMeat();
+//                    break;
+//                case 4:
+//                    addCheese();
+//                    break;
+//                case 5:
+//                    addTopping();
+//                    break;
+//                case 6:
+//                    addSauce();
+//                    break;
+//                case 7:
+//                    toastSandwich();
+//                    break;
+//                case 8:
+//                    return;
+//                default:
+//                    System.out.println("Invalid Input");
+//                    break;
+//            }
         }
     }
 

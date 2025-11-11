@@ -49,7 +49,7 @@ public class Drink extends Product {
 
     @Override
     public String getDescription() {
-        return size + flavor + getPrice();
+        return size + " " +flavor;
     }
 
     @Override

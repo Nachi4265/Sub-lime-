@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Sandwich sandwich = new Sandwich(4,"white");
+        Sandwich sandwich = new Sandwich(12,"white");
         Topping topping1 = new Topping("ham","meat",false);
         Topping topping2 = new Topping("chedder","cheese",false);
         sandwich.addTopping(topping1);
@@ -26,7 +26,6 @@ public class Main {
         order101.addProduct(p2);
         order101.addProduct(p3);
         order101.isValidOrder();
-        order101.calculateTotal();
 
         System.out.println(order101.getOrderDetails());
 
