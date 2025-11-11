@@ -83,26 +83,33 @@ public class Order {
     public String getOrderDetails(){
 
         StringBuilder builder = new StringBuilder();
-        String orderDetails = "";
 
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-DD HH:mm");
         builder.append("SUB-LIME SANDWICHES");
         builder.append("\n");
-        builder.append("DATE & TIME" + date);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDateTime = date.format(formatter);
+        builder.append("DATE & TIME: " + formattedDateTime);
+
         builder.append("\n");
+        builder.append("-----------------------------");
+        builder.append("\n");
+
+
 
         for(Product p : products){
             builder.append(p.getDescription()+"\n");
+            builder.append("Price: $" + String.format("%.2f",p.getPrice())+"\n");
 
-            System.out.println();
-
-            builder.append("Price: $" + p.getPrice()+"\n");
+            builder.append("\n");
+            builder.append("-----------------------------");
+            builder.append("\n");
 
         }
         builder.append("TOTAL: $");
         builder.append(calculateTotal());
 
-        return orderDetails = builder.toString();
+        return builder.toString();
     }
 
 
