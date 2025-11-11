@@ -188,7 +188,7 @@ public class UserInterface {
             default:
                 System.out.println("invalid choice");
         }
-        sandwich.addTopping(sandwichMeatTopping);
+        //sandwich.addTopping();
     }
 
     private void selectSize(Sandwich sandwich) {

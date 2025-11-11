@@ -101,7 +101,8 @@ public class Sandwich extends Product {
 
     @Override
     public String getDescription() {
-        return this.size + breadType + "with" + sandwichToppings;
+        return this.size + breadType + "sandwich" + isToasted + "\n"+
+                sandwichToppings;
     }
 
     @Override

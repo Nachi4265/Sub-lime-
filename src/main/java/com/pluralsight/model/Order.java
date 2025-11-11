@@ -1,6 +1,8 @@
 package com.pluralsight.model;
 
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,6 +77,18 @@ public class Order {
            //add chips or drink
        }
 
+    }
+
+    //ORDER DETAILS
+    public String getOrderDetails(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-DD HH:mm");
+        String formmatedDateTime = date.format(formatter);
+
+        System.out.println("Order Date: " + formmatedDateTime);
+
+        for(Product p :products){
+            return p.getDescription() + calculateTotal();
+        }
     }
 
     @Override

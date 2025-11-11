@@ -26,11 +26,11 @@ public class Chip extends Product {
 
     @Override
     public String getDescription() {
-        return chipName;
+        return chipName + "\n" + getPrice();
     }
 
     @Override
     public String toString() {
-        return "Chips " + chipName;
+        return chipName + getPrice();
     }
 }

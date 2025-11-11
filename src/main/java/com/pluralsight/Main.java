@@ -27,7 +27,8 @@ public class Main {
         order101.addProduct(p3);
         order101.isValidOrder();
         order101.calculateTotal();
-        System.out.println(order101);
+
+        System.out.println(order101.getOrderDetails());
 
        // -------------------------------------------
         UserInterface ui = new UserInterface();

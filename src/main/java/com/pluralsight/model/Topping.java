@@ -36,7 +36,9 @@ public class Topping {
         isExtra = extra;
     }
 
-
+    public String getDescription(){
+        return name + isExtra;
+    }
 
     public double getPrice(int size) {
 

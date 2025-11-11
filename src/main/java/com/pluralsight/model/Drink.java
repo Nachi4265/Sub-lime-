@@ -49,12 +49,12 @@ public class Drink extends Product {
 
     @Override
     public String getDescription() {
-        return size + flavor;
+        return size + flavor + getPrice();
     }
 
     @Override
     public String toString() {
-        return "Drink size: " + size + " | " + "Flavor: " + flavor + " | " +"price: "+ getPrice();
+        return size + flavor + getPrice();
     }
 
     //PRICE CALC
