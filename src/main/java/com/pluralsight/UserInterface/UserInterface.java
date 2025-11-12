@@ -58,7 +58,7 @@ public class UserInterface {
         while (true) {
             String orderScreen = """
                     ===================| Order Screen |======================
-                    1 - Add Sandwich\n;
+                    1 - Add Sandwich\n
                     2 - Add Drink\n
                     3 - Add Chips \n
                     4 - Checkout\n
@@ -80,8 +80,9 @@ public class UserInterface {
                     addChipsScreen(currentOrder);
                     break;
                 case 4:
+                    //todo fix error
                     checkoutScreen(currentOrder);
-                    break;
+                    return;
                 case 5:
                     orderManager.cancelOrder();
                     System.out.println("ORDER CANCELLED!!");
@@ -607,9 +608,38 @@ public class UserInterface {
 
 
     //CHECKOUT SCREEN
-    private void checkoutScreen(Order currentOrder) {
+    private Boolean checkoutScreen(Order currentOrder) {
+        // 1. Check if order is valid
+        if(currentOrder.isValidOrder()) {
+
+            // 2. Display order details
+            System.out.println(currentOrder.getOrderDetails());
+
+        }
+            // 3. Ask to confirm or cancel
+            String confirmOrCancel = InputCollector.promptForString("Is your order correct? (Y/N)");
+
+            // 4. If confirm: save receipt and return to home
+            // 5. If cancel: delete order and return to home
+
+            if(confirmOrCancel.equalsIgnoreCase("Y")){
+                System.out.println("Order confirmed!");
+                System.out.println("Printing receipt...");
+            }else if(confirmOrCancel.equalsIgnoreCase("N")){
+                System.out.println("Order canceled!");
+                System.out.println("Returning to home Menu!");
+            }else{
+                System.out.println("Invalid entry!");
+            }
+
+
+
+        return true;
 
     }
+
+
+
 
 }
 

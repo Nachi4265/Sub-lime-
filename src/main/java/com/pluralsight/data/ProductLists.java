@@ -29,13 +29,13 @@ public class ProductLists {
 
     // Other products (chips and drinks)
     public static final String[] chipTypes = {
-            "BBQ", "Sour Cream & Onion", "Salt & Vinegar",
-            "Classic", "Cheddar", "Jalapeño"
+            "1)-BBQ", "2)-Sour Cream & Onion", "3)-Salt & Vinegar",
+            "4)-Classic", "5)-Cheddar", "6)-Jalapeño"
     };
 
     public static final String[] drinkFlavors = {
-            "Coke", "Pepsi", "Sprite", "Fanta", "Dr Pepper",
-            "Lemonade", "Iced Tea", "Water"
+            "1)-Coke", "2)-Pepsi", "3)-Sprite", "4)-Fanta", "5)-Dr Pepper",
+            "6)-Lemonade", "7)-Iced Tea", "8)-Water"
     };
 
 

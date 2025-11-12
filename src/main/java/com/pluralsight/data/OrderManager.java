@@ -6,7 +6,7 @@ public class OrderManager {
     private Order order;
 
     public void startNewOrder(){
-        Order currentOrder = new Order();
+        this.order = new Order();
     }
 
     public Order getCurrentOrder(){
