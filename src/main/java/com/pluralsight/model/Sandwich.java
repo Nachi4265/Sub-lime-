@@ -63,6 +63,13 @@ public class Sandwich extends Product {
         this.sandwichToppings = toppings;
     }
 
+    public boolean sandwichIsValid(){
+        if( breadType != null && sandwichToppings != null){
+            System.out.println("Sandwich is Valid");
+        }
+        return true;
+    }
+
 
     //ADD METHOD -------------------------------------------------------------------------------------------------------
 

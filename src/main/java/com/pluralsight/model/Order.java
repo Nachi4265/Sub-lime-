@@ -1,9 +1,4 @@
-package com.pluralsight.data;
-
-import com.pluralsight.model.Chip;
-import com.pluralsight.model.Drink;
-import com.pluralsight.model.Product;
-import com.pluralsight.model.Sandwich;
+package com.pluralsight.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -126,7 +121,7 @@ public class Order {
 
         }
         builder.append("TOTAL: $");
-        builder.append(calculateTotal());
+        builder.append( String.format("%.2f",calculateTotal()));
 
         return builder.toString();
     }

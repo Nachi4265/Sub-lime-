@@ -2,7 +2,7 @@ package com.pluralsight.UserInterface;
 
 import com.pluralsight.data.OrderManager;
 import com.pluralsight.data.ProductLists;
-import com.pluralsight.data.Order;
+import com.pluralsight.model.Order;
 import com.pluralsight.model.Chip;
 import com.pluralsight.model.Drink;
 import com.pluralsight.model.Sandwich;
@@ -142,10 +142,17 @@ public class UserInterface {
                     sandwichAskIsToasted(sandwich);
                     break;
                 case 8:
-                    //Add the completed sandwich to currentOrder
-                    currentOrder.addProduct(sandwich);
-                    System.out.println("SANDWICH ADDED TO ORDER!");
-                    return;
+                    //Add the completed sandwich to
+                    //check is Sandwich is valid
+
+                   if(sandwich.sandwichIsValid()){
+                       currentOrder.addProduct(sandwich);
+                       System.out.println("SANDWICH ADDED TO ORDER!");
+                       return;
+                   }else {
+                       System.out.println("sandwich is incomplete!");
+                   }
+
                 default:
                     System.out.println("Invalid Input");
                     break;

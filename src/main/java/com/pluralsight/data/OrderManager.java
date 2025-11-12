@@ -1,6 +1,6 @@
 package com.pluralsight.data;
 
-import com.pluralsight.model.Product;
+import com.pluralsight.model.Order;
 
 public class OrderManager {
     private Order order;
