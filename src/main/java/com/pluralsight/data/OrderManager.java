@@ -5,6 +5,10 @@ import com.pluralsight.model.Product;
 public class OrderManager {
     private Order order;
 
+    public void startNewOrder(){
+        Order currentOrder = new Order();
+    }
+
     public Order getCurrentOrder(){
         return order;
     }
@@ -14,8 +18,5 @@ public class OrderManager {
         return order = null;
     }
 
-    public void addProduct(Product product){
-        //todo
-    }
 
 }

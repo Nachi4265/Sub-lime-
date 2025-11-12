@@ -1,5 +1,6 @@
 package com.pluralsight.UserInterface;
 
+import com.pluralsight.data.OrderManager;
 import com.pluralsight.data.ProductLists;
 import com.pluralsight.data.Order;
 import com.pluralsight.model.Chip;
@@ -10,9 +11,6 @@ import com.pluralsight.model.Topping;
 import java.util.Arrays;
 
 public class UserInterface {
-
-
-
 
     //HOME SCREEN
     public void homeScreen() {
@@ -43,17 +41,24 @@ public class UserInterface {
     }
 
 
-
     //NEW ORDER SCREEN
     private void startNewOrderScreen() {
 
         //When the start Order screen runs a new order is created.
-        Order currentOrder = new Order();
+
+        //Create an instance of orderManager
+        OrderManager orderManager = new OrderManager();
+
+        //use it's start new order method
+        orderManager.startNewOrder();
+
+        //set an Order named current order to the get current order method.
+        Order currentOrder = orderManager.getCurrentOrder();
 
         while (true) {
             String orderScreen = """
                     ===================| Order Screen |======================
-                    1 - Add Sandwich\n
+                    1 - Add Sandwich\n;
                     2 - Add Drink\n
                     3 - Add Chips \n
                     4 - Checkout\n
@@ -78,16 +83,15 @@ public class UserInterface {
                     checkoutScreen(currentOrder);
                     break;
                 case 5:
-//                    cancelOrder();
-                    break;
+                    orderManager.cancelOrder();
+                    System.out.println("ORDER CANCELLED!!");
+                    return;
                 default:
                     System.out.println("Invalid Input");
                     break;
             }
         }
     }
-
-
 
 
     // SANDWICH PRODUCT MENU
@@ -299,7 +303,11 @@ public class UserInterface {
         String wantExtra = InputCollector.promptForString("Want extra cheese? (Y/N)");
         if(wantExtra.equalsIgnoreCase("Y")){
             topping.setExtra(true);
+            System.out.println("Extra " + sandwichCheeseTopping + " selected! ");
+        }else {
+            System.out.println("NO extra "+ sandwichCheeseTopping +" added!");
         }
+
 
         sandwich.addTopping(topping);
 
@@ -349,6 +357,9 @@ public class UserInterface {
         String wantExtra = InputCollector.promptForString("Want Extra meat? (Y/N)");
         if(wantExtra.equalsIgnoreCase("Y")){
             topping.setExtra(true);
+            System.out.println("Extra " + sandwichMeatTopping + " selected");
+        }else {
+            System.out.println("NO extra "+ sandwichMeatTopping+" added!");
         }
 
         //Topping is added to out sandwich
@@ -396,15 +407,19 @@ public class UserInterface {
 
             case 1:
                 breadType = "white";
+                System.out.println("White bread selected!");
                 break;
             case 2:
                 breadType = "wheat";
+                System.out.println("Wheat bread selected!");
                 break;
             case 3:
                 breadType = "rye";
+                System.out.println("Rye bread selected!");
                 break;
             case 4:
                 breadType = "wrap";
+                System.out.println("Wrap bread selected!");
                 break;
             default:
                 System.out.println("invalid choice");
@@ -413,8 +428,6 @@ public class UserInterface {
 
         sandwich.setBreadType(breadType);
     }
-
-
 
 
 
@@ -428,7 +441,7 @@ public class UserInterface {
                     ===================| Order Screen |======================
                     1 - select Size \n
                     2 - Select Flavor \n
-                    3 - return \n
+                    3 - Done \n
                     """;
 
             System.out.println(drinkScreen);
@@ -541,8 +554,6 @@ public class UserInterface {
     }
 
 
-
-
     // CHIPS PRODUCT MENU
     private void addChipsScreen(Order currentOrder) {
 
@@ -592,19 +603,24 @@ public class UserInterface {
         System.out.println("CHIPS ADDED TO ORDER!");
 
         }
-    }
-
-
-
-
 
 
 
     //CHECKOUT SCREEN
     private void checkoutScreen(Order currentOrder) {
+
     }
 
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
