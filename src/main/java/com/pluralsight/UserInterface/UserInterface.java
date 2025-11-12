@@ -142,7 +142,7 @@ public class UserInterface {
                     sandwichAskIsToasted(sandwich);
                     break;
                 case 8:
-                    //Add the completed sandwich to
+                    //todo Add the completed sandwich to
                     //check is Sandwich is valid
                     //todo come back to fix
                    if(sandwich.sandwichIsValid()){

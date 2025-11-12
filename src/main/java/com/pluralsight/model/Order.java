@@ -81,9 +81,7 @@ public class Order {
 
        //If statements that will determine if our order has a sandwich or not.
        if(hasSandwich){
-
            return true;
-
        } else if (hasChips || hasDrink) {
            return true;
        }else {

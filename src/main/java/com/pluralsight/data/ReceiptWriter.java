@@ -17,10 +17,11 @@ public class ReceiptWriter {
         //make a folder
         File folder = new File(receiptFolder);
 
-
+        //if no folder exist then make one!
         if(!folder.exists()){
             boolean createFolder = folder.mkdir();
 
+            //if we cant make then give us an error
             if(!createFolder){
                 System.out.println("Error finding receipts!!");
             }
@@ -30,6 +31,12 @@ public class ReceiptWriter {
     public void saveReceipts(Order order){
 
         String receiptTimeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+
+        File fileToWrite = new File(receiptFolder,receiptTimeStamp + ".txt");
+
+        try( FileWriter fileWriter = new FileWriter(fileToWrite)){
+           fileWriter.write();//todo
+        }catch(){}
 
     }
 

@@ -62,7 +62,7 @@ public class Topping {
                 } else if (size == 12) {
                     price = 3.00;}
 
-
+                //If they want extra meat
                 if (isExtra && size == 4) {
                     price += .50;
                 } else if (isExtra && size == 8) {
