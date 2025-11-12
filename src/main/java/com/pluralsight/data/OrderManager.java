@@ -1,5 +1,7 @@
 package com.pluralsight.data;
 
+import com.pluralsight.model.Product;
+
 public class OrderManager {
     private Order order;
 
@@ -10,6 +12,10 @@ public class OrderManager {
     //CANCEL ORDER
     public Order cancelOrder(){
         return order = null;
+    }
+
+    public void addProduct(Product product){
+        //todo
     }
 
 }

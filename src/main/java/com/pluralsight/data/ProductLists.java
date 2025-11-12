@@ -27,8 +27,6 @@ public class ProductLists {
 
 
 
-
-
     // Other products (chips and drinks)
     public static final String[] chipTypes = {
             "BBQ", "Sour Cream & Onion", "Salt & Vinegar",

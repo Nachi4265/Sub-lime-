@@ -2,6 +2,8 @@ package com.pluralsight.UserInterface;
 
 import com.pluralsight.data.ProductLists;
 import com.pluralsight.data.Order;
+import com.pluralsight.model.Chip;
+import com.pluralsight.model.Drink;
 import com.pluralsight.model.Sandwich;
 import com.pluralsight.model.Topping;
 
@@ -64,16 +66,16 @@ public class UserInterface {
 
             switch (command) {
                 case 1:
-                    addSandwichScreen();
+                    addSandwichScreen(currentOrder);
                     break;
                 case 2:
-                    addDrinkScreen();
+                    addDrinkScreen(currentOrder);
                     break;
                 case 3:
-                    addChipsScreen();
+                    addChipsScreen(currentOrder);
                     break;
                 case 4:
-                    checkoutScreen();
+                    checkoutScreen(currentOrder);
                     break;
                 case 5:
 //                    cancelOrder();
@@ -89,7 +91,7 @@ public class UserInterface {
 
 
     // SANDWICH PRODUCT MENU
-    private void addSandwichScreen(){
+    private void addSandwichScreen(Order currentOrder){
 
         //Create a new Sandwich when selected.
         Sandwich sandwich = new Sandwich();
@@ -104,7 +106,7 @@ public class UserInterface {
                     5 - Add regular Topping\n
                     6 - Add sauce \n
                     7 - Toast Sandwich? \n
-                    8 - return \n
+                    8 - Done \n
                     """;
 
             System.out.println(sandwichSelectionScreen);
@@ -113,27 +115,30 @@ public class UserInterface {
 
             switch (command) {
                 case 1:
-                    selectSize();
+                    selectSize(sandwich);
                     break;
                 case 2:
-                    selectBread();
+                    selectBread(sandwich);
                     break;
                 case 3:
-                    addMeat();
+                    addMeat(sandwich);
                     break;
                 case 4:
-                    addCheese();
+                    addCheese(sandwich);
                     break;
                 case 5:
-                    addTopping();
+                    addTopping(sandwich);
                     break;
                 case 6:
-                    addSauce();
+                    addSauce(sandwich);
                     break;
                 case 7:
-                    toastSandwich();
+                    toastSandwich(sandwich);
                     break;
                 case 8:
+                    //Add the completed sandwich to currentOrder
+                    currentOrder.addProduct(sandwich);
+                    System.out.println("SANDWICH ADDED TO ORDER!");
                     return;
                 default:
                     System.out.println("Invalid Input");
@@ -400,6 +405,7 @@ public class UserInterface {
                 break;
             case 4:
                 breadType = "wrap";
+                break;
             default:
                 System.out.println("invalid choice");
 
@@ -413,13 +419,16 @@ public class UserInterface {
 
 
     // DRINK PRODUCT MENU
-    private void addDrinkScreen() {
+    private void addDrinkScreen(Order currentOrder) {
+
+        Drink drink = new Drink("","");
+
         while (true) {
             String drinkScreen = """
                     ===================| Order Screen |======================
                     1 - select Size \n
                     2 - Select Flavor \n
-                    3 -return \n
+                    3 - return \n
                     """;
 
             System.out.println(drinkScreen);
@@ -428,12 +437,14 @@ public class UserInterface {
 
             switch (command) {
                 case 1:
-                    selectDrinkSize();
+                    selectDrinkSize(drink);
                     break;
                 case 2:
-                    selectDrinkFlavor();
+                    selectDrinkFlavor(drink);
                     break;
                 case 3:
+                    currentOrder.addProduct(drink);
+                    System.out.println("DRINK ADDED TO ORDER!");
                     return;
                 default:
                     System.out.println("Invalid Input");
@@ -442,41 +453,143 @@ public class UserInterface {
         }
     }
 
-    private void selectDrinkFlavor() {
+    private void selectDrinkFlavor(Drink drink) {
+        System.out.println("DRINK FLAVOR OPTIONS");
+        System.out.println(Arrays.toString(ProductLists.drinkFlavors));
+        int choice = InputCollector.promptForInt("Which drink flavor would you like? ");
+
+        String drinkFlavor = "";
+
+        switch (choice){
+
+
+            case 1:
+                drinkFlavor = "Coke";
+                System.out.println(" Coke selected! ");
+                break;
+            case 2:
+                drinkFlavor = "Pepsi";
+                System.out.println(" Pepsi selected! ");
+                break;
+            case 3:
+                drinkFlavor = "Sprite";
+                System.out.println(" Sprite selected! ");
+                break;
+            case 4:
+                drinkFlavor = "Fanta";
+                System.out.println(" Fanta selected! ");
+                break;
+            case 5:
+                drinkFlavor = "Dr Pepper";
+                System.out.println(" Dr Pepper selected! ");
+                break;
+            case 6:
+                drinkFlavor = "Lemonade";
+                System.out.println(" Lemonade selected! ");
+                break;
+            case 7:
+                drinkFlavor = "Iced Tea";
+                System.out.println(" Iced Tea selected! ");
+                break;
+            case 8:
+                drinkFlavor = "Water";
+                System.out.println(" Water selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+                return;
+        }
+
+        //Set the flavor on the drink
+        drink.setFlavor(drinkFlavor);
+
     }
 
-    private void selectDrinkSize(){}
+    private void selectDrinkSize(Drink drink){
+
+        System.out.println("DRINK SIZE OPTIONS");
+        System.out.println("1) Small - $2.00");
+        System.out.println("2) Medium - $2.50");
+        System.out.println("3) Large - $3.00");
+
+        int choice = InputCollector.promptForInt("Which size would you like? ");
+
+        String drinkSize = "";
+
+        switch (choice){
+
+            case 1:
+                drinkSize = "small";
+                System.out.println(" Small selected! ");
+                break;
+            case 2:
+                drinkSize = "medium";
+                System.out.println(" Medium selected! ");
+                break;
+            case 3:
+                drinkSize = "large";
+                System.out.println(" Large selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+                return;
+        }
+
+        //Set the size on the drink
+        drink.setSize(drinkSize);
+
+    }
 
 
 
 
     // CHIPS PRODUCT MENU
-    private void addChipsScreen() {
-        while (true) {
-            String chipsScreen = """
-                    ===================| Order Screen |======================
-                    1 - select \n
-                    2 - Select Flavor \n
-                    3 - return \n
-                    """;
+    private void addChipsScreen(Order currentOrder) {
 
-            System.out.println(chipsScreen);
+        Chip chips = new Chip("","");
 
-            int command = InputCollector.promptForInt("Enter a number command");
+        System.out.println("CHIPS FLAVOR OPTIONS");
+        System.out.println(Arrays.toString(ProductLists.chipTypes));
+        int choice = InputCollector.promptForInt("Which type of chips would you like? ");
 
-            switch (command) {
-                case 1:
-                    selectDrinkSize();
-                    break;
-                case 2:
-                    selectDrinkFlavor();
-                    break;
-                case 3:
-                    return;
-                default:
-                    System.out.println("Invalid Input");
-                    break;
-            }
+        String chipType = "";
+
+        switch (choice){
+
+            case 1:
+                chipType = "BBQ";
+                System.out.println(" BBQ selected! ");
+                break;
+            case 2:
+                chipType = "Sour Cream & Onion";
+                System.out.println(" Sour Cream & Onion selected! ");
+                break;
+            case 3:
+                chipType = "Salt & Vinegar";
+                System.out.println(" Salt & Vinegar selected! ");
+                break;
+            case 4:
+                chipType = "Classic";
+                System.out.println(" Classic selected! ");
+                break;
+            case 5:
+                chipType = "Cheddar";
+                System.out.println(" Cheddar selected! ");
+                break;
+            case 6:
+                chipType = "Jalapeño";
+                System.out.println(" Jalapeño selected! ");
+                break;
+            default:
+                System.out.println("invalid choice");
+                return;
+        }
+
+        //Set the chip type
+        chips.setChipName(chipType);
+
+        currentOrder.addProduct(chips);
+        System.out.println("CHIPS ADDED TO ORDER!");
 
         }
     }
@@ -488,7 +601,7 @@ public class UserInterface {
 
 
     //CHECKOUT SCREEN
-    private void checkoutScreen() {
+    private void checkoutScreen(Order currentOrder) {
     }
 
 
