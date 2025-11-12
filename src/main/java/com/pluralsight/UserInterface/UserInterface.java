@@ -144,7 +144,7 @@ public class UserInterface {
                 case 8:
                     //Add the completed sandwich to
                     //check is Sandwich is valid
-
+                    //todo come back to fix
                    if(sandwich.sandwichIsValid()){
                        currentOrder.addProduct(sandwich);
                        System.out.println("SANDWICH ADDED TO ORDER!");
@@ -646,18 +646,3 @@ public class UserInterface {
             }
 
     }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
