@@ -5,6 +5,7 @@ import com.pluralsight.model.Order;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -17,12 +18,14 @@ public class ReceiptWriter {
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
-        localDateTime.format(dateTimeFormatter);
+        String dateformatted = localDateTime.format(dateTimeFormatter);
 
-        return localDateTime + ".txt";
+        return dateformatted + ".txt";
+
     }
 
     public void ensureReceiptFolderExist(){
+
         File file = new File(receiptFolder);
 
         if(file.exists()){
@@ -36,15 +39,16 @@ public class ReceiptWriter {
         ensureReceiptFolderExist();
 
        String filename = generateFileName(order.getDate());
+       String filePath = receiptFolder + File.separator + filename;
 
-       receiptFolder + "/" + filename;
+       try (FileWriter fileWriter = new FileWriter(filePath);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
 
-       order.getOrderDetails();
+            bufferedWriter.write(order.getOrderDetails());
 
-       FileWriter fileWriter = new FileWriter();
-
-       fileWriter.write(order.getOrderDetails());
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
