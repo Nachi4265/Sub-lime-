@@ -11,8 +11,5 @@ public class Main {
         ui.homeScreen();
 
 
-        ReceiptWriter receiptWriter = new ReceiptWriter();
-        receiptWriter.ensureReceiptFolderExist();
-
     }
 }

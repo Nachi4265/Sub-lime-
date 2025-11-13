@@ -1,0 +1,13 @@
+SUB-LIME SANDWICHES
+DATE & TIME: 2025-11-13 11:45
+-----------------------------
+8 inch wheat bread sandwich
+[steak]
+Price: $10.00
+
+-----------------------------
+BBQ
+Price: $1.50
+
+-----------------------------
+TOTAL: $11.50

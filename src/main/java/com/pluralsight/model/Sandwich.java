@@ -66,8 +66,11 @@ public class Sandwich extends Product {
     public boolean sandwichIsValid(){
         if( breadType != null && sandwichToppings != null){
             System.out.println("Sandwich is Valid");
+            return true;
+        }else {
+            System.out.println("Please ensure you have Bread type selected and a topping");
+            return false;
         }
-        return true;
     }
 
 

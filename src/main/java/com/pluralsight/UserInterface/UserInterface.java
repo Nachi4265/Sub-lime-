@@ -59,11 +59,12 @@ public class UserInterface {
         while (true) {
             String orderScreen = """
                     ===================| Order Screen |======================
-                    1 - Add Sandwich\n
-                    2 - Add Drink\n
+                    0 - Signature Sandwiches \n
+                    1 - Add Sandwich \n
+                    2 - Add Drink  \n
                     3 - Add Chips \n
-                    4 - Checkout\n
-                    5 - Cancel Order\n
+                    4 - Checkout \n
+                    5 - Cancel Order \n
                     """;
 
             System.out.println(orderScreen);
@@ -71,8 +72,10 @@ public class UserInterface {
             int command = InputCollector.promptForInt("Enter a number command");
 
             switch (command) {
+                case 0:
+                    sandwichSignature(currentOrder);
                 case 1:
-                    sandwichAndScreen(currentOrder);
+                    sandwichAddScreen(currentOrder);
                     break;
                 case 2:
                     drinkAddScreen(currentOrder);
@@ -81,7 +84,6 @@ public class UserInterface {
                     chipsAddScreen(currentOrder);
                     break;
                 case 4:
-                    //todo fix error
                     checkoutScreen(currentOrder);
                     return;
                 case 5:
@@ -96,8 +98,10 @@ public class UserInterface {
     }
 
 
+
+
     //SANDWICH SCREEN MENU/OPTIONS
-    private void sandwichAndScreen(Order currentOrder) {
+    private void sandwichAddScreen(Order currentOrder) {
 
         //Create a new Sandwich when selected.
         Sandwich sandwich = new Sandwich();
@@ -108,12 +112,12 @@ public class UserInterface {
                     1 - Select size \n
                     2 - Select bread \n
                     3 - Add meats \n
-                    4 - Add cheese\n
-                    5 - Add regular Topping\n
+                    4 - Add cheese \n
+                    5 - Add regular Topping \n
                     6 - Add sauce \n
                     7 - Toast Sandwich? \n
                     8 - Done \n
-                    """;
+                   \s""";
 
             System.out.println(sandwichSelectionScreen);
 
@@ -142,19 +146,15 @@ public class UserInterface {
                     sandwichAskIsToasted(sandwich);
                     break;
                 case 8:
-                    //todo Add the completed sandwich to
-                    //check is Sandwich is valid
-                    //todo come back to fix
                     if (sandwich.sandwichIsValid()) {
                         currentOrder.addProduct(sandwich);
                         System.out.println("SANDWICH ADDED TO ORDER!");
-                        System.out.println("Current total: $" + currentOrder.calculateTotal());
+                        System.out.println("Current total: $" + String.format("%.2f", currentOrder.calculateTotal()));
                         return;
                     } else {
                         System.out.println("sandwich is incomplete!");
                     }
                     break;
-
                 default:
                     System.out.println("Invalid Input");
                     break;
@@ -162,7 +162,130 @@ public class UserInterface {
         }
     }
 
-    private void sandwichAskIsToasted(Sandwich sandwich) {
+    private void sandwichSignature(Order curentOrder) {
+
+        while (true) {
+            String sandwichSignature = """
+                    ===================| Signature Sandwich Screen |======================
+                    1 - The EVERYTHING (You must be crazy!!) \n
+                    2 - The Classic (You're name Bob?) \n
+                    3 - The Veggie \n
+                    4 - Done \n
+                    """;
+
+            System.out.println(sandwichSignature);
+
+            int command = InputCollector.promptForInt("Enter a number command");
+
+            switch (command) {
+                case 1:
+                    Sandwich sandwich = new Sandwich();
+                    sandwich.setSize(12);
+                    sandwich.setBreadType("White");
+                    sandwich.setToasted(true);
+                    //add every single topping
+                    if (sandwich.getSize() == 12) {
+                        Topping topping1 = new Topping("Steak", "Meat", true);
+                        sandwich.addTopping(topping1);
+
+                        Topping topping2 = new Topping("Ham", "Meat", true);
+                        sandwich.addTopping(topping2);
+
+                        Topping topping3 = new Topping("Salami", "Meat", true);
+                        sandwich.addTopping(topping3);
+
+                        Topping topping4 = new Topping("Roast Beef", "Meat", true);
+                        sandwich.addTopping(topping4);
+
+                        Topping topping5 = new Topping("Chicken", "Meat", true);
+                        sandwich.addTopping(topping5);
+
+                        Topping topping6 = new Topping("Bacon", "Meat", true);
+                        sandwich.addTopping(topping6);
+
+                        // ===== CHEESES (isExtra = true) =====
+                        Topping topping7 = new Topping("American", "Cheese", true);
+                        sandwich.addTopping(topping7);
+
+                        Topping topping8 = new Topping("Provolone", "Cheese", true);
+                        sandwich.addTopping(topping7);
+
+                        Topping topping9 = new Topping("Cheddar", "Cheese", true);
+                        sandwich.addTopping(topping8);
+
+                        Topping topping10 = new Topping("Swiss", "Cheese", true);
+                        sandwich.addTopping(topping10);
+
+                        // ===== REGULAR TOPPINGS (isExtra = false) =====
+                        Topping topping11 = new Topping("Lettuce", "Regular Topping", false);
+                        sandwich.addTopping(topping11);
+
+                        Topping topping12 = new Topping("Peppers", "Regular Topping", false);
+                        sandwich.addTopping(topping12);
+
+                        Topping topping13 = new Topping("Onions", "Regular Topping", false);
+                        sandwich.addTopping(topping13);
+
+                        Topping topping14 = new Topping("Tomatoes", "Regular Topping", false);
+                        sandwich.addTopping(topping14);
+
+                        Topping topping15 = new Topping("Jalapeños", "Regular Topping", false);
+                        sandwich.addTopping(topping15);
+
+                        Topping topping16 = new Topping("Cucumbers", "Regular Topping", false);
+                        sandwich.addTopping(topping16);
+
+                        Topping topping17 = new Topping("Pickles", "Regular Topping", false);
+                        sandwich.addTopping(topping17);
+
+                        Topping topping18 = new Topping("Guacamole", "Regular Topping", false);
+                        sandwich.addTopping(topping18);
+
+                        Topping topping19 = new Topping("Mushrooms", "Regular Topping", false);
+                        sandwich.addTopping(topping19);
+
+                        // ===== SAUCES (isExtra = false) =====
+                        Topping topping20 = new Topping("Mayo", "Sauce", false);
+                        sandwich.addTopping(topping20);
+
+                        Topping topping21 = new Topping("Mustard", "Sauce", false);
+                        sandwich.addTopping(topping21);
+
+                        Topping topping22 = new Topping("Ketchup", "Sauce", false);
+                        sandwich.addTopping(topping22);
+
+                        Topping topping23 = new Topping("Ranch", "Sauce", false);
+                        sandwich.addTopping(topping23);
+
+                        Topping topping24 = new Topping("Thousand Islands", "Sauce", false);
+                        sandwich.addTopping(topping24);
+
+                        Topping topping25 = new Topping("Vinaigrette", "Sauce", false);
+                        sandwich.addTopping(topping25);
+
+                        Topping topping26 = new Topping("Au Jus", "Sauce", false);
+                        sandwich.addTopping(topping26);
+                    }
+                    curentOrder.addProduct(sandwich);
+                    System.out.println("THE EVERYTHING HAS BEEN ADDED!");
+                    break;
+                case 2:
+                    System.out.println("The Classic has been added");
+                    break;
+                case 3:
+                    System.out.println("The Veggie has been added");
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("invalid entry!");
+            }
+        }
+    }
+
+
+
+    private void sandwichAskIsToasted (Sandwich sandwich){
         System.out.println("TOASTED BREAD?");
         String answer = InputCollector.promptForString("Would you like your sandwich toasted?(Y/N)");
         if (answer.equalsIgnoreCase("y")) {
@@ -171,7 +294,7 @@ public class UserInterface {
         }
     }
 
-    private void sandwichAddSauce(Sandwich sandwich) {
+    private void sandwichAddSauce (Sandwich sandwich){
         System.out.println("SAUCE OPTIONS");
         System.out.println(Arrays.toString(ProductLists.sauces));
         int choice = InputCollector.promptForInt("Which sauce would you like? ");
@@ -220,7 +343,7 @@ public class UserInterface {
         sandwich.addTopping(topping);
     }
 
-    private void sandwichAddTopping(Sandwich sandwich) {
+    private void sandwichAddTopping (Sandwich sandwich){
         System.out.println("REGULAR TOPPING OPTIONS");
         System.out.println(Arrays.toString(ProductLists.regularToppings));
 
@@ -278,7 +401,7 @@ public class UserInterface {
         sandwich.addTopping(topping);
     }
 
-    private void sandwichAddCheese(Sandwich sandwich) {
+    private void sandwichAddCheese (Sandwich sandwich){
 
         System.out.println("CHEESE OPTIONS");
         System.out.println(Arrays.toString(ProductLists.cheese));
@@ -325,7 +448,7 @@ public class UserInterface {
 
     }
 
-    private void sandwichAddMeat(Sandwich sandwich) {
+    private void sandwichAddMeat (Sandwich sandwich){
         System.out.println("MEAT OPTIONS");
         System.out.println(Arrays.toString(ProductLists.meats));
         int choice = InputCollector.promptForInt("Which meat topping would you like? ");
@@ -379,7 +502,7 @@ public class UserInterface {
         sandwich.addTopping(topping);
     }
 
-    private void sandwichSelectSize(Sandwich sandwich) {
+    private void sandwichSelectSize (Sandwich sandwich){
 
         System.out.println("BREAD SIZE");
         System.out.println(Arrays.toString(ProductLists.sizes));
@@ -402,7 +525,7 @@ public class UserInterface {
                 System.out.println(" 12 inch bread selected! ");
                 break;
             default:
-                sandwichLength =4;
+                sandwichLength = 4;
                 System.out.println("invalid choice default option chosen 4 inch");
         }
 
@@ -410,7 +533,7 @@ public class UserInterface {
         sandwich.setSize(sandwichLength);
     }
 
-    private void sandwichSelectBread(Sandwich sandwich) {
+    private void sandwichSelectBread (Sandwich sandwich){
         System.out.println("BREAD OPTIONS");
         System.out.println(Arrays.toString(ProductLists.bread));
         int sizeChoice = InputCollector.promptForInt("Which bread type would you like? ");
@@ -444,18 +567,20 @@ public class UserInterface {
     }
 
 
+
+
     // DRINK PRODUCT MENU/OPTIONS
-    private void drinkAddScreen(Order currentOrder) {
+    private void drinkAddScreen (Order currentOrder){
 
         Drink drink = new Drink("", "");
 
         while (true) {
             String drinkScreen = """
-                    ===================| Order Screen |======================
-                    1 - select Size \n
-                    2 - Select Flavor \n
-                    3 - Done \n
-                    """;
+                        ===================| Order Screen |======================
+                        1 - select Size \n
+                        2 - Select Flavor \n
+                        3 - Done \n
+                        """;
 
             System.out.println(drinkScreen);
 
@@ -475,6 +600,7 @@ public class UserInterface {
                     }
                     currentOrder.addProduct(drink);
                     System.out.println("DRINK ADDED TO ORDER!");
+                    System.out.println("Current total: $" + currentOrder.calculateTotal());
                     return;
                 default:
                     System.out.println("Invalid Input");
@@ -483,7 +609,7 @@ public class UserInterface {
         }
     }
 
-    private void drinkSelectFlavor(Drink drink) {
+    private void drinkSelectFlavor (Drink drink){
         System.out.println("DRINK FLAVOR OPTIONS");
         System.out.println(Arrays.toString(ProductLists.drinkFlavors));
         int choice = InputCollector.promptForInt("Which drink flavor would you like? ");
@@ -535,7 +661,7 @@ public class UserInterface {
 
     }
 
-    private void drinkSelectSize(Drink drink) {
+    private void drinkSelectSize (Drink drink){
 
         System.out.println("DRINK SIZE OPTIONS");
         System.out.println("1) Small - $2.00");
@@ -572,7 +698,7 @@ public class UserInterface {
 
 
     // CHIPS PRODUCT MENU/OPTIONS
-    private void chipsAddScreen(Order currentOrder) {
+    private void chipsAddScreen (Order currentOrder){
 
         Chip chips = new Chip("", "");
 
@@ -625,7 +751,7 @@ public class UserInterface {
 
 
     //CHECKOUT SCREEN
-    private void checkoutScreen(Order currentOrder) {
+    private void checkoutScreen (Order currentOrder){
 
         ReceiptWriter receiptWriter = new ReceiptWriter();
 
@@ -633,7 +759,7 @@ public class UserInterface {
         if (currentOrder.isValidOrder()) {
             // 2. Display order details
             System.out.println(currentOrder.getOrderDetails());
-        }else{
+        } else {
             System.out.println("invalid order, Please add items before checking out!");
             return;
         }
@@ -642,7 +768,7 @@ public class UserInterface {
         // 3. Ask to confirm or cancel
         String confirmOrCancel = InputCollector.promptForString("Is your order correct? (Y/N)");
 
-        if(confirmOrCancel.equalsIgnoreCase("Y")){
+        if (confirmOrCancel.equalsIgnoreCase("Y")) {
             // 4. If confirm: save receipt and return to home
             receiptWriter.saveReceipt(currentOrder);
             System.out.println("ORDER CONFIRMED!");
@@ -655,7 +781,6 @@ public class UserInterface {
             System.out.println("Invalid entry!");
         }
         // 5. If cancel: delete order and return to home
-
 
 
     }
