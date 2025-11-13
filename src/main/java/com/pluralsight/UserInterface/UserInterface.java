@@ -3,11 +3,7 @@ package com.pluralsight.UserInterface;
 import com.pluralsight.data.OrderManager;
 import com.pluralsight.data.ProductLists;
 import com.pluralsight.data.ReceiptWriter;
-import com.pluralsight.model.Order;
-import com.pluralsight.model.Chip;
-import com.pluralsight.model.Drink;
-import com.pluralsight.model.Sandwich;
-import com.pluralsight.model.Topping;
+import com.pluralsight.model.*;
 
 import java.util.Arrays;
 
@@ -74,6 +70,7 @@ public class UserInterface {
             switch (command) {
                 case 0:
                     sandwichSignature(currentOrder);
+                    break;
                 case 1:
                     sandwichAddScreen(currentOrder);
                     break;
@@ -101,6 +98,44 @@ public class UserInterface {
 
 
     //SANDWICH SCREEN MENU/OPTIONS
+    private void sandwichSignature(Order curentOrder) {
+
+        SignatureSandwich signatureSandwich = new SignatureSandwich();
+
+        while (true) {
+            String sandwichSignature = """
+                    ===================| Signature Sandwich Screen |======================
+                    1 - The EVERYTHING (You must be crazy!!) \n
+                    2 - The Classic (You're name Bob?) \n
+                    3 - The Veggie Wrap \n
+                    4 - Done \n
+                    """;
+
+            System.out.println(sandwichSignature);
+
+            int command = InputCollector.promptForInt("Enter a number command");
+
+            switch (command) {
+                case 1:
+                    curentOrder.addProduct(signatureSandwich.theEverything());
+                    System.out.println("THE EVERYTHING HAS BEEN ADDED!");
+                    return;
+                case 2:
+                    curentOrder.addProduct(signatureSandwich.theClassic());
+                    System.out.println("The Classic has been added");
+                    return;
+                case 3:
+                    curentOrder.addProduct(signatureSandwich.theVeggieWrap());
+                    System.out.println("The Veggie has been added");
+                    return;
+                case 4:
+                    return;
+                default:
+                    System.out.println("invalid entry!");
+            }
+        }
+    }
+
     private void sandwichAddScreen(Order currentOrder) {
 
         //Create a new Sandwich when selected.
@@ -161,129 +196,6 @@ public class UserInterface {
             }
         }
     }
-
-    private void sandwichSignature(Order curentOrder) {
-
-        while (true) {
-            String sandwichSignature = """
-                    ===================| Signature Sandwich Screen |======================
-                    1 - The EVERYTHING (You must be crazy!!) \n
-                    2 - The Classic (You're name Bob?) \n
-                    3 - The Veggie \n
-                    4 - Done \n
-                    """;
-
-            System.out.println(sandwichSignature);
-
-            int command = InputCollector.promptForInt("Enter a number command");
-
-            switch (command) {
-                case 1:
-                    Sandwich sandwich = new Sandwich();
-                    sandwich.setSize(12);
-                    sandwich.setBreadType("White");
-                    sandwich.setToasted(true);
-                    //add every single topping
-                    if (sandwich.getSize() == 12) {
-                        Topping topping1 = new Topping("Steak", "Meat", true);
-                        sandwich.addTopping(topping1);
-
-                        Topping topping2 = new Topping("Ham", "Meat", true);
-                        sandwich.addTopping(topping2);
-
-                        Topping topping3 = new Topping("Salami", "Meat", true);
-                        sandwich.addTopping(topping3);
-
-                        Topping topping4 = new Topping("Roast Beef", "Meat", true);
-                        sandwich.addTopping(topping4);
-
-                        Topping topping5 = new Topping("Chicken", "Meat", true);
-                        sandwich.addTopping(topping5);
-
-                        Topping topping6 = new Topping("Bacon", "Meat", true);
-                        sandwich.addTopping(topping6);
-
-                        // ===== CHEESES (isExtra = true) =====
-                        Topping topping7 = new Topping("American", "Cheese", true);
-                        sandwich.addTopping(topping7);
-
-                        Topping topping8 = new Topping("Provolone", "Cheese", true);
-                        sandwich.addTopping(topping7);
-
-                        Topping topping9 = new Topping("Cheddar", "Cheese", true);
-                        sandwich.addTopping(topping8);
-
-                        Topping topping10 = new Topping("Swiss", "Cheese", true);
-                        sandwich.addTopping(topping10);
-
-                        // ===== REGULAR TOPPINGS (isExtra = false) =====
-                        Topping topping11 = new Topping("Lettuce", "Regular Topping", false);
-                        sandwich.addTopping(topping11);
-
-                        Topping topping12 = new Topping("Peppers", "Regular Topping", false);
-                        sandwich.addTopping(topping12);
-
-                        Topping topping13 = new Topping("Onions", "Regular Topping", false);
-                        sandwich.addTopping(topping13);
-
-                        Topping topping14 = new Topping("Tomatoes", "Regular Topping", false);
-                        sandwich.addTopping(topping14);
-
-                        Topping topping15 = new Topping("Jalapeños", "Regular Topping", false);
-                        sandwich.addTopping(topping15);
-
-                        Topping topping16 = new Topping("Cucumbers", "Regular Topping", false);
-                        sandwich.addTopping(topping16);
-
-                        Topping topping17 = new Topping("Pickles", "Regular Topping", false);
-                        sandwich.addTopping(topping17);
-
-                        Topping topping18 = new Topping("Guacamole", "Regular Topping", false);
-                        sandwich.addTopping(topping18);
-
-                        Topping topping19 = new Topping("Mushrooms", "Regular Topping", false);
-                        sandwich.addTopping(topping19);
-
-                        // ===== SAUCES (isExtra = false) =====
-                        Topping topping20 = new Topping("Mayo", "Sauce", false);
-                        sandwich.addTopping(topping20);
-
-                        Topping topping21 = new Topping("Mustard", "Sauce", false);
-                        sandwich.addTopping(topping21);
-
-                        Topping topping22 = new Topping("Ketchup", "Sauce", false);
-                        sandwich.addTopping(topping22);
-
-                        Topping topping23 = new Topping("Ranch", "Sauce", false);
-                        sandwich.addTopping(topping23);
-
-                        Topping topping24 = new Topping("Thousand Islands", "Sauce", false);
-                        sandwich.addTopping(topping24);
-
-                        Topping topping25 = new Topping("Vinaigrette", "Sauce", false);
-                        sandwich.addTopping(topping25);
-
-                        Topping topping26 = new Topping("Au Jus", "Sauce", false);
-                        sandwich.addTopping(topping26);
-                    }
-                    curentOrder.addProduct(sandwich);
-                    System.out.println("THE EVERYTHING HAS BEEN ADDED!");
-                    break;
-                case 2:
-                    System.out.println("The Classic has been added");
-                    break;
-                case 3:
-                    System.out.println("The Veggie has been added");
-                    break;
-                case 4:
-                    return;
-                default:
-                    System.out.println("invalid entry!");
-            }
-        }
-    }
-
-
 
     private void sandwichAskIsToasted (Sandwich sandwich){
         System.out.println("TOASTED BREAD?");
