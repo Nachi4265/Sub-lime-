@@ -19,6 +19,7 @@ public class Chip extends Product {
     }
 
 
+
     @Override
     public double getPrice() {
         return 1.50;

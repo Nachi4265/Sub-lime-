@@ -2,6 +2,7 @@ package com.pluralsight.UserInterface;
 
 import com.pluralsight.data.OrderManager;
 import com.pluralsight.data.ProductLists;
+import com.pluralsight.data.ReceiptWriter;
 import com.pluralsight.model.Order;
 import com.pluralsight.model.Chip;
 import com.pluralsight.model.Drink;
@@ -147,10 +148,12 @@ public class UserInterface {
                     if (sandwich.sandwichIsValid()) {
                         currentOrder.addProduct(sandwich);
                         System.out.println("SANDWICH ADDED TO ORDER!");
+                        System.out.println("Current total: $" + currentOrder.calculateTotal());
                         return;
                     } else {
                         System.out.println("sandwich is incomplete!");
                     }
+                    break;
 
                 default:
                     System.out.println("Invalid Input");
@@ -399,7 +402,8 @@ public class UserInterface {
                 System.out.println(" 12 inch bread selected! ");
                 break;
             default:
-                System.out.println("invalid choice");
+                sandwichLength =4;
+                System.out.println("invalid choice default option chosen 4 inch");
         }
 
         //set the length of our sandwich
@@ -465,6 +469,10 @@ public class UserInterface {
                     drinkSelectFlavor(drink);
                     break;
                 case 3:
+                    if (drink.getSize().isEmpty() || drink.getFlavor().isEmpty()) {
+                        System.out.println("Please select both size and flavor before finishing!");
+                        break;  // Stay in loop
+                    }
                     currentOrder.addProduct(drink);
                     System.out.println("DRINK ADDED TO ORDER!");
                     return;
@@ -611,6 +619,7 @@ public class UserInterface {
         currentOrder.addProduct(chips);
 
         System.out.println("CHIPS ADDED TO ORDER!");
+        System.out.println("Current total: $" + currentOrder.calculateTotal());
 
     }
 
@@ -618,28 +627,36 @@ public class UserInterface {
     //CHECKOUT SCREEN
     private void checkoutScreen(Order currentOrder) {
 
+        ReceiptWriter receiptWriter = new ReceiptWriter();
+
         // 1. Check if order is valid
         if (currentOrder.isValidOrder()) {
-
             // 2. Display order details
             System.out.println(currentOrder.getOrderDetails());
-
+        }else{
+            System.out.println("invalid order, Please add items before checking out!");
+            return;
         }
+
+
         // 3. Ask to confirm or cancel
         String confirmOrCancel = InputCollector.promptForString("Is your order correct? (Y/N)");
 
-        // 4. If confirm: save receipt and return to home
-        // 5. If cancel: delete order and return to home
+        if(confirmOrCancel.equalsIgnoreCase("Y")){
+            // 4. If confirm: save receipt and return to home
+            receiptWriter.saveReceipt(currentOrder);
+            System.out.println("ORDER CONFIRMED!");
+            System.out.println("PRINTING RECEIPT...");
 
-        if (confirmOrCancel.equalsIgnoreCase("Y")) {
-            System.out.println("Order confirmed!");
-            System.out.println("Printing receipt...");
         } else if (confirmOrCancel.equalsIgnoreCase("N")) {
             System.out.println("Order canceled!");
             System.out.println("Returning to home Menu!");
         } else {
             System.out.println("Invalid entry!");
         }
+        // 5. If cancel: delete order and return to home
+
+
 
     }
 }
