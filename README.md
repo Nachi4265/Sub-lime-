@@ -51,6 +51,7 @@ java Main
 ````
 
 ## Acknowledgments
-
+- Oracle Java Documentation
+- W3Schools 
 - Pluralsight Java Development Program
 - Project requirements provided by Year Up
