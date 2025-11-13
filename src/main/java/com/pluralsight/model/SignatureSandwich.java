@@ -3,41 +3,44 @@ package com.pluralsight.model;
 public class SignatureSandwich extends Sandwich {
 
     public Sandwich theEverything(){
+
         Sandwich sandwich = new Sandwich();
         sandwich.setSize(12);
         sandwich.setBreadType("White");
         sandwich.setToasted(true);
 
+
+
         //add every single topping
-            Topping topping1 = new Topping("Steak", "Meat", true);
+            Topping topping1 = new Topping("Steak", "meat", true);
             sandwich.addTopping(topping1);
 
-            Topping topping2 = new Topping("Ham", "Meat", true);
+            Topping topping2 = new Topping("Ham", "meat", true);
             sandwich.addTopping(topping2);
 
-            Topping topping3 = new Topping("Salami", "Meat", true);
+            Topping topping3 = new Topping("Salami", "meat", true);
             sandwich.addTopping(topping3);
 
-            Topping topping4 = new Topping("Roast Beef", "Meat", true);
+            Topping topping4 = new Topping("Roast Beef", "meat", true);
             sandwich.addTopping(topping4);
 
-            Topping topping5 = new Topping("Chicken", "Meat", true);
+            Topping topping5 = new Topping("Chicken", "meat", true);
             sandwich.addTopping(topping5);
 
-            Topping topping6 = new Topping("Bacon", "Meat", true);
+            Topping topping6 = new Topping("Bacon", "meat", true);
             sandwich.addTopping(topping6);
 
             // ===== CHEESES (isExtra = true) =====
-            Topping topping7 = new Topping("American", "Cheese", true);
+            Topping topping7 = new Topping("American", "cheese", true);
             sandwich.addTopping(topping7);
 
-            Topping topping8 = new Topping("Provolone", "Cheese", true);
-            sandwich.addTopping(topping7);
-
-            Topping topping9 = new Topping("Cheddar", "Cheese", true);
+            Topping topping8 = new Topping("Provolone", "cheese", true);
             sandwich.addTopping(topping8);
 
-            Topping topping10 = new Topping("Swiss", "Cheese", true);
+            Topping topping9 = new Topping("Cheddar", "cheese", true);
+            sandwich.addTopping(topping9);
+
+            Topping topping10 = new Topping("Swiss", "cheese", true);
             sandwich.addTopping(topping10);
 
             // ===== REGULAR TOPPINGS (isExtra = false) =====

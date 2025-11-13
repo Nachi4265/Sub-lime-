@@ -53,6 +53,8 @@ public class UserInterface {
         Order currentOrder = orderManager.getCurrentOrder();
 
         while (true) {
+            System.out.println();
+
             String orderScreen = """
                     ===================| Order Screen |======================
                     0 - Signature Sandwiches \n
@@ -103,6 +105,10 @@ public class UserInterface {
         SignatureSandwich signatureSandwich = new SignatureSandwich();
 
         while (true) {
+
+
+            System.out.println();
+
             String sandwichSignature = """
                     ===================| Signature Sandwich Screen |======================
                     1 - The EVERYTHING (You must be crazy!!) \n
@@ -114,6 +120,7 @@ public class UserInterface {
             System.out.println(sandwichSignature);
 
             int command = InputCollector.promptForInt("Enter a number command");
+            System.out.println();
 
             switch (command) {
                 case 1:
@@ -142,6 +149,9 @@ public class UserInterface {
         Sandwich sandwich = new Sandwich();
 
         while (true) {
+            //space
+            System.out.println();
+
             String sandwichSelectionScreen = """
                     ===================| Sandwich Screen |======================
                     1 - Select size \n
@@ -157,6 +167,7 @@ public class UserInterface {
             System.out.println(sandwichSelectionScreen);
 
             int command = InputCollector.promptForInt("Enter a number command");
+            System.out.println();
 
             switch (command) {
                 case 1:
@@ -198,8 +209,14 @@ public class UserInterface {
     }
 
     private void sandwichAskIsToasted (Sandwich sandwich){
+
+        System.out.println();
+
         System.out.println("TOASTED BREAD?");
         String answer = InputCollector.promptForString("Would you like your sandwich toasted?(Y/N)");
+
+        System.out.println();
+
         if (answer.equalsIgnoreCase("y")) {
             System.out.println("SANDWICH TOASTED!");
             sandwich.setToasted(true);
@@ -207,9 +224,14 @@ public class UserInterface {
     }
 
     private void sandwichAddSauce (Sandwich sandwich){
+
+        System.out.println();
+
         System.out.println("SAUCE OPTIONS");
         System.out.println(Arrays.toString(ProductLists.sauces));
         int choice = InputCollector.promptForInt("Which sauce would you like? ");
+
+        System.out.println();
 
         String sauceName;
 
@@ -256,10 +278,15 @@ public class UserInterface {
     }
 
     private void sandwichAddTopping (Sandwich sandwich){
+
+        System.out.println();
+
         System.out.println("REGULAR TOPPING OPTIONS");
         System.out.println(Arrays.toString(ProductLists.regularToppings));
 
         int choice = InputCollector.promptForInt("Which topping would you like? ");
+
+        System.out.println();
 
         String toppingName;
 
@@ -315,55 +342,74 @@ public class UserInterface {
 
     private void sandwichAddCheese (Sandwich sandwich){
 
-        System.out.println("CHEESE OPTIONS");
-        System.out.println(Arrays.toString(ProductLists.cheese));
-        int choice = InputCollector.promptForInt("Which meat topping would you like? ");
+        while (true){
 
-        String sandwichCheeseTopping = "";
+            System.out.println();
 
-        switch (choice) {
+            System.out.println("CHEESE OPTIONS");
+            System.out.println(Arrays.toString(ProductLists.cheese));
+            int choice = InputCollector.promptForInt("Which cheese topping would you like? ");
 
+            System.out.println();
 
-            case 1:
-                sandwichCheeseTopping = "American";
-                System.out.println(" American selected! ");
-                break;
-            case 2:
-                sandwichCheeseTopping = "Provolone";
-                System.out.println(" Provolone selected! ");
-                break;
-            case 3:
-                sandwichCheeseTopping = "Cheddar";
-                System.out.println(" Cheddar selected! ");
-                break;
-            case 4:
-                sandwichCheeseTopping = "Swiss";
-                System.out.println(" Swiss selected! ");
-                break;
-            default:
-                System.out.println("invalid choice");
+            String sandwichCheeseTopping = "";
+
+            switch (choice) {
+
+                case 1:
+                    sandwichCheeseTopping = "American";
+                    System.out.println(" American selected! ");
+                    break;
+                case 2:
+                    sandwichCheeseTopping = "Provolone";
+                    System.out.println(" Provolone selected! ");
+                    break;
+                case 3:
+                    sandwichCheeseTopping = "Cheddar";
+                    System.out.println(" Cheddar selected! ");
+                    break;
+                case 4:
+                    sandwichCheeseTopping = "Swiss";
+                    System.out.println(" Swiss selected! ");
+                    break;
+            }
+
+            if (choice == 1 || choice == 2 || choice == 3 || choice ==4){
+
+                Topping topping = new Topping(sandwichCheeseTopping, "cheese", false);
+                String wantExtra = InputCollector.promptForString("Want extra cheese? (Y/N)");
+
+                if (wantExtra.equalsIgnoreCase("Y")) {
+                    topping.setExtra(true);
+                    System.out.println("Extra " + sandwichCheeseTopping + " selected! ");
+                    sandwich.addTopping(topping);
+                    return;
+                } else {
+                    System.out.println("NO extra " + sandwichCheeseTopping + " added!");
+                    sandwich.addTopping(topping);
+                    return;
+                }
+            }
+
+            else {
+                System.out.println("invalid");
+            }
+
         }
 
 
-        Topping topping = new Topping(sandwichCheeseTopping, "cheese", false);
-
-        String wantExtra = InputCollector.promptForString("Want extra cheese? (Y/N)");
-        if (wantExtra.equalsIgnoreCase("Y")) {
-            topping.setExtra(true);
-            System.out.println("Extra " + sandwichCheeseTopping + " selected! ");
-        } else {
-            System.out.println("NO extra " + sandwichCheeseTopping + " added!");
-        }
-
-
-        sandwich.addTopping(topping);
 
     }
 
     private void sandwichAddMeat (Sandwich sandwich){
+
+        System.out.println();
+
         System.out.println("MEAT OPTIONS");
         System.out.println(Arrays.toString(ProductLists.meats));
         int choice = InputCollector.promptForInt("Which meat topping would you like? ");
+
+        System.out.println();
 
         String sandwichMeatTopping = "";
 
@@ -416,9 +462,13 @@ public class UserInterface {
 
     private void sandwichSelectSize (Sandwich sandwich){
 
+        System.out.println();
+
         System.out.println("BREAD SIZE");
         System.out.println(Arrays.toString(ProductLists.sizes));
         int sizeChoice = InputCollector.promptForInt("Which bread size would you like? ");
+
+        System.out.println();
 
         int sandwichLength = 0;
 
@@ -446,9 +496,14 @@ public class UserInterface {
     }
 
     private void sandwichSelectBread (Sandwich sandwich){
+
+        System.out.println();
+
         System.out.println("BREAD OPTIONS");
         System.out.println(Arrays.toString(ProductLists.bread));
         int sizeChoice = InputCollector.promptForInt("Which bread type would you like? ");
+
+        System.out.println();
 
         String breadType = "";
 
@@ -487,6 +542,9 @@ public class UserInterface {
         Drink drink = new Drink("", "");
 
         while (true) {
+
+            System.out.println();
+
             String drinkScreen = """
                         ===================| Order Screen |======================
                         1 - select Size \n
@@ -497,6 +555,8 @@ public class UserInterface {
             System.out.println(drinkScreen);
 
             int command = InputCollector.promptForInt("Enter a number command");
+
+            System.out.println();
 
             switch (command) {
                 case 1:
@@ -512,7 +572,7 @@ public class UserInterface {
                     }
                     currentOrder.addProduct(drink);
                     System.out.println("DRINK ADDED TO ORDER!");
-                    System.out.println("Current total: $" + currentOrder.calculateTotal());
+                    System.out.println("Current total: $" + String.format("%.2f",currentOrder.calculateTotal()));
                     return;
                 default:
                     System.out.println("Invalid Input");
@@ -522,9 +582,14 @@ public class UserInterface {
     }
 
     private void drinkSelectFlavor (Drink drink){
+
+        System.out.println();
+
         System.out.println("DRINK FLAVOR OPTIONS");
         System.out.println(Arrays.toString(ProductLists.drinkFlavors));
         int choice = InputCollector.promptForInt("Which drink flavor would you like? ");
+
+        System.out.println();
 
         String drinkFlavor;
 
@@ -575,12 +640,16 @@ public class UserInterface {
 
     private void drinkSelectSize (Drink drink){
 
+        System.out.println();
+
         System.out.println("DRINK SIZE OPTIONS");
         System.out.println("1) Small - $2.00");
         System.out.println("2) Medium - $2.50");
         System.out.println("3) Large - $3.00");
 
         int choice = InputCollector.promptForInt("Which size would you like? ");
+
+        System.out.println();
 
         String drinkSize;
 
@@ -614,9 +683,13 @@ public class UserInterface {
 
         Chip chips = new Chip("", "");
 
+        System.out.println();
+
         System.out.println("CHIPS FLAVOR OPTIONS");
         System.out.println(Arrays.toString(ProductLists.chipTypes));
         int choice = InputCollector.promptForInt("Which type of chips would you like? ");
+
+        System.out.println();
 
         String chipType;
 
@@ -657,7 +730,7 @@ public class UserInterface {
         currentOrder.addProduct(chips);
 
         System.out.println("CHIPS ADDED TO ORDER!");
-        System.out.println("Current total: $" + currentOrder.calculateTotal());
+        System.out.println("Current total: $" + String.format("%.2f",currentOrder.calculateTotal()));
 
     }
 
