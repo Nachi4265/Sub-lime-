@@ -1,32 +1,21 @@
 package com.pluralsight.data;
 
+import com.pluralsight.model.Order;
+import com.pluralsight.model.Sandwich;
+
 import java.io.File;
 
 public class Receipt {
 
-    private File file;
-    private String fileID;
-
-    public Receipt(File file, String fileID) {
-        this.file = file;
-        this.fileID = fileID;
-    }
-
-    public File getFile() {
-        return file;
-    }
-
-    public void setFile(File file) {
-        this.file = file;
-    }
-
-    public String getFileID() {
-        return fileID;
-    }
-
-    public void setFileID(String fileID) {
-        this.fileID = fileID;
-    }
+//    public static String generate(Order order){
+//
+//        String header = "Sub-Lime Sandwiches";
+//
+//        String product = order.getProducts().stream().map(product1 -> {
+//            if(product1 instanceof Sandwich sandwich){}
+//        })
+//
+//    }
 
 
 }

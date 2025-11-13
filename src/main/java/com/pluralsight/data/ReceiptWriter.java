@@ -12,35 +12,84 @@ public class ReceiptWriter {
 
     private static final String receiptFolder = "receipts";
 
-    public ReceiptWriter(){
 
-        //make a folder
-        File folder = new File(receiptFolder);
+    public String generateFileName(LocalDateTime localDateTime){
 
-        //if no folder exist then make one!
-        if(!folder.exists()){
-            boolean createFolder = folder.mkdir();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
-            //if we cant make then give us an error
-            if(!createFolder){
-                System.out.println("Error finding receipts!!");
-            }
+        localDateTime.format(dateTimeFormatter);
+
+        return localDateTime + ".txt";
+    }
+
+    public void ensureReceiptFolderExist(){
+        File file = new File(receiptFolder);
+
+        if(file.exists()){
+            System.out.println("folder exist...writing file!");
+        }else if (!file.exists()){
+            file.mkdir();
         }
     }
 
-    public void saveReceipts(Order order){
+    public void saveReceipt(Order order){
+        ensureReceiptFolderExist();
 
-        String receiptTimeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+       String filename = generateFileName(order.getDate());
 
-        File fileToWrite = new File(receiptFolder,receiptTimeStamp + ".txt");
+       receiptFolder + "/" + filename;
 
-        try( FileWriter fileWriter = new FileWriter(fileToWrite)){
-           fileWriter.write();//todo
-        }catch(){}
+       order.getOrderDetails();
+
+       FileWriter fileWriter = new FileWriter();
+
+       fileWriter.write(order.getOrderDetails());
 
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public void saveReceipts(Order order){
+//
+//        String receiptTimeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
+//
+//        File fileToWrite = new File(receiptFolder,receiptTimeStamp + ".txt");
+//
+//        try( FileWriter fileWriter = new FileWriter(fileToWrite)){
+//           fileWriter.write();//todo
+//        }catch(){}
+//
+//    }
+//
+//    public ReceiptWriter(){
+//
+//        //make a folder
+//        File folder = new File(receiptFolder);
+//
+//        //if no folder exist then make one!
+//        if(!folder.exists()){
+//            boolean createFolder = folder.mkdir();
+//
+//            //if we cant make then give us an error
+//            if(!createFolder){
+//                System.out.println("Error finding receipts!!");
+//            }
+//        }
+//    }
 
     /* Receipt System
     Goal: Save receipts to files
@@ -55,24 +104,24 @@ public class ReceiptWriter {
 
 
 
-    public void createReceipt(Receipt receipt){
-
-    }
-
-    public void filenameGenerator(){
-
-
-
-    }
-
-    //Method to create receipts folder
-    public void receiptFolderCreation(){}
-
-    //Connect Receipt to Checkout
-    public void orderFileWriter(){
-//        FileWriter fileWriter = new FileWriter("Receipt");
-//        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-    }
+//    public void createReceipt(Receipt receipt){
+//
+//    }
+//
+//    public void filenameGenerator(){
+//
+//
+//
+//    }
+//
+//    //Method to create receipts folder
+//    public void receiptFolderCreation(){}
+//
+//    //Connect Receipt to Checkout
+//    public void orderFileWriter(){
+////        FileWriter fileWriter = new FileWriter("Receipt");
+////        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+//    }
 
 
 }

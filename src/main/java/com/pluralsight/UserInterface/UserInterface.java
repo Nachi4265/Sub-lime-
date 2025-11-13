@@ -95,14 +95,13 @@ public class UserInterface {
     }
 
 
-
     //SANDWICH SCREEN MENU/OPTIONS
-    private void sandwichAndScreen(Order currentOrder){
+    private void sandwichAndScreen(Order currentOrder) {
 
         //Create a new Sandwich when selected.
         Sandwich sandwich = new Sandwich();
 
-        while (true){
+        while (true) {
             String sandwichSelectionScreen = """
                     ===================| Sandwich Screen |======================
                     1 - Select size \n
@@ -145,13 +144,13 @@ public class UserInterface {
                     //todo Add the completed sandwich to
                     //check is Sandwich is valid
                     //todo come back to fix
-                   if(sandwich.sandwichIsValid()){
-                       currentOrder.addProduct(sandwich);
-                       System.out.println("SANDWICH ADDED TO ORDER!");
-                       return;
-                   }else {
-                       System.out.println("sandwich is incomplete!");
-                   }
+                    if (sandwich.sandwichIsValid()) {
+                        currentOrder.addProduct(sandwich);
+                        System.out.println("SANDWICH ADDED TO ORDER!");
+                        return;
+                    } else {
+                        System.out.println("sandwich is incomplete!");
+                    }
 
                 default:
                     System.out.println("Invalid Input");
@@ -163,7 +162,7 @@ public class UserInterface {
     private void sandwichAskIsToasted(Sandwich sandwich) {
         System.out.println("TOASTED BREAD?");
         String answer = InputCollector.promptForString("Would you like your sandwich toasted?(Y/N)");
-        if (answer.equalsIgnoreCase("y")){
+        if (answer.equalsIgnoreCase("y")) {
             System.out.println("SANDWICH TOASTED!");
             sandwich.setToasted(true);
         }
@@ -174,9 +173,9 @@ public class UserInterface {
         System.out.println(Arrays.toString(ProductLists.sauces));
         int choice = InputCollector.promptForInt("Which sauce would you like? ");
 
-        String sauceName ;
+        String sauceName;
 
-        switch (choice){
+        switch (choice) {
 
             case 1:
                 sauceName = "mayo";
@@ -221,11 +220,12 @@ public class UserInterface {
     private void sandwichAddTopping(Sandwich sandwich) {
         System.out.println("REGULAR TOPPING OPTIONS");
         System.out.println(Arrays.toString(ProductLists.regularToppings));
+
         int choice = InputCollector.promptForInt("Which topping would you like? ");
 
-        String toppingName ;
+        String toppingName;
 
-        switch (choice){
+        switch (choice) {
 
             case 1:
                 toppingName = "lettuce";
@@ -283,7 +283,7 @@ public class UserInterface {
 
         String sandwichCheeseTopping = "";
 
-        switch (choice){
+        switch (choice) {
 
 
             case 1:
@@ -307,14 +307,14 @@ public class UserInterface {
         }
 
 
-        Topping topping = new Topping(sandwichCheeseTopping,"cheese",false);
+        Topping topping = new Topping(sandwichCheeseTopping, "cheese", false);
 
         String wantExtra = InputCollector.promptForString("Want extra cheese? (Y/N)");
-        if(wantExtra.equalsIgnoreCase("Y")){
+        if (wantExtra.equalsIgnoreCase("Y")) {
             topping.setExtra(true);
             System.out.println("Extra " + sandwichCheeseTopping + " selected! ");
-        }else {
-            System.out.println("NO extra "+ sandwichCheeseTopping +" added!");
+        } else {
+            System.out.println("NO extra " + sandwichCheeseTopping + " added!");
         }
 
 
@@ -329,7 +329,7 @@ public class UserInterface {
 
         String sandwichMeatTopping = "";
 
-        switch (choice){
+        switch (choice) {
 
             case 1:
                 sandwichMeatTopping = "steak";
@@ -360,16 +360,16 @@ public class UserInterface {
         }
 
         //Make a new topping to add based on what they chose (String for the name)
-        Topping topping = new Topping(sandwichMeatTopping,"meat",false);
+        Topping topping = new Topping(sandwichMeatTopping, "meat", false);
 
         //Ask if they want extra
         String wantExtra = InputCollector.promptForString("Want Extra meat? (Y/N)");
 
-        if(wantExtra.equalsIgnoreCase("Y")){
+        if (wantExtra.equalsIgnoreCase("Y")) {
             topping.setExtra(true);
             System.out.println("Extra " + sandwichMeatTopping + " selected");
-        }else {
-            System.out.println("NO extra "+ sandwichMeatTopping+" added!");
+        } else {
+            System.out.println("NO extra " + sandwichMeatTopping + " added!");
         }
 
         //Topping is added to out sandwich
@@ -384,7 +384,7 @@ public class UserInterface {
 
         int sandwichLength = 0;
 
-        switch (sizeChoice){
+        switch (sizeChoice) {
 
             case 4:
                 sandwichLength = 4;
@@ -413,7 +413,7 @@ public class UserInterface {
 
         String breadType = "";
 
-        switch (sizeChoice){
+        switch (sizeChoice) {
 
             case 1:
                 breadType = "white";
@@ -440,11 +440,10 @@ public class UserInterface {
     }
 
 
-
     // DRINK PRODUCT MENU/OPTIONS
     private void drinkAddScreen(Order currentOrder) {
 
-        Drink drink = new Drink("","");
+        Drink drink = new Drink("", "");
 
         while (true) {
             String drinkScreen = """
@@ -483,7 +482,7 @@ public class UserInterface {
 
         String drinkFlavor;
 
-        switch (choice){
+        switch (choice) {
 
 
             case 1:
@@ -528,7 +527,7 @@ public class UserInterface {
 
     }
 
-    private void drinkSelectSize(Drink drink){
+    private void drinkSelectSize(Drink drink) {
 
         System.out.println("DRINK SIZE OPTIONS");
         System.out.println("1) Small - $2.00");
@@ -537,9 +536,9 @@ public class UserInterface {
 
         int choice = InputCollector.promptForInt("Which size would you like? ");
 
-        String drinkSize ;
+        String drinkSize;
 
-        switch (choice){
+        switch (choice) {
 
             case 1:
                 drinkSize = "small";
@@ -564,19 +563,18 @@ public class UserInterface {
     }
 
 
-
     // CHIPS PRODUCT MENU/OPTIONS
     private void chipsAddScreen(Order currentOrder) {
 
-        Chip chips = new Chip("","");
+        Chip chips = new Chip("", "");
 
         System.out.println("CHIPS FLAVOR OPTIONS");
         System.out.println(Arrays.toString(ProductLists.chipTypes));
         int choice = InputCollector.promptForInt("Which type of chips would you like? ");
 
-        String chipType ;
+        String chipType;
 
-        switch (choice){
+        switch (choice) {
 
             case 1:
                 chipType = "BBQ";
@@ -614,35 +612,34 @@ public class UserInterface {
 
         System.out.println("CHIPS ADDED TO ORDER!");
 
-        }
-
-
+    }
 
 
     //CHECKOUT SCREEN
     private void checkoutScreen(Order currentOrder) {
 
         // 1. Check if order is valid
-        if(currentOrder.isValidOrder()) {
+        if (currentOrder.isValidOrder()) {
 
             // 2. Display order details
             System.out.println(currentOrder.getOrderDetails());
 
         }
-            // 3. Ask to confirm or cancel
-            String confirmOrCancel = InputCollector.promptForString("Is your order correct? (Y/N)");
+        // 3. Ask to confirm or cancel
+        String confirmOrCancel = InputCollector.promptForString("Is your order correct? (Y/N)");
 
-            // 4. If confirm: save receipt and return to home
-            // 5. If cancel: delete order and return to home
+        // 4. If confirm: save receipt and return to home
+        // 5. If cancel: delete order and return to home
 
-            if(confirmOrCancel.equalsIgnoreCase("Y")){
-                System.out.println("Order confirmed!");
-                System.out.println("Printing receipt...");
-            }else if(confirmOrCancel.equalsIgnoreCase("N")){
-                System.out.println("Order canceled!");
-                System.out.println("Returning to home Menu!");
-            }else{
-                System.out.println("Invalid entry!");
-            }
+        if (confirmOrCancel.equalsIgnoreCase("Y")) {
+            System.out.println("Order confirmed!");
+            System.out.println("Printing receipt...");
+        } else if (confirmOrCancel.equalsIgnoreCase("N")) {
+            System.out.println("Order canceled!");
+            System.out.println("Returning to home Menu!");
+        } else {
+            System.out.println("Invalid entry!");
+        }
 
     }
+}
