@@ -1,6 +1,6 @@
 # Sub-Lime Sandwich Shop Capstone
 
-##Description
+### Description
 This project is the point of sales application for Sub-lime , a custom sandwich 
 shop. This application allows you to customize a sandwich or choose signature sanwiches. 
 You can also add chips or a drink to your order!
