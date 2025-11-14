@@ -29,7 +29,7 @@ public class ReceiptWriter {
         File file = new File(receiptFolder);
 
         if(file.exists()){
-            System.out.println("folder exist...writing file!");
+           //nice!
         }else if (!file.exists()){
             file.mkdir();
         }
