@@ -55,8 +55,12 @@ java Main
 ````
 
 ##Coming soon Features
--Add or remove Items.
--Web display
+-Add or remove Items  
+-Web display  
+
+##UML DIAGRAM
+<img width="591" height="835" alt="Screenshot 2025-11-06 201008" src="https://github.com/user-attachments/assets/d6a18a69-031a-401c-8157-1c62ad854673" />
+
 
 ## Acknowledgments
 - Oracle Java Documentation
