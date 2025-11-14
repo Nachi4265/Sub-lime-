@@ -2,18 +2,22 @@
 
 ##Description
 This project is the point of sales application for Sub-lime , a custom sandwich 
-shop. Currently at Sub-lime our customers can fully customize their sandwich 
-orders. Until recently we have been managing all orders in person and are 
-currently taking all orders on paper. But our business is growing, and we need a 
-way to automate the order process (and eventually even make it available 
-online). 
+shop. This application allows you to customize a sandwich or choose signature sanwiches. 
+You can also add chips or a drink to your order!
 
 ##Features 
-o 1) Add Sandwich  
-o 2) Add Drink  
-o 3) Add Chips  
-o 4) Checkout  
-o 0) Cancel Order 
+0 - Signature Sandwiches 
+
+1 - Add Sandwich 
+
+2 - Add Drink  
+
+3 - Add Chips 
+
+4 - Checkout 
+
+5 - Cancel Order 
+
 
 ## Menus!
 <img width="200" height="200" alt="Screenshot 2025-11-13 140548" src="https://github.com/user-attachments/assets/95eb159c-f7ad-4390-999c-ce0635f93fc1" />
@@ -49,6 +53,10 @@ cd DELI-cious
 javac Main.java
 java Main
 ````
+
+##Coming soon Features
+-Add or remove Items.
+-Web display
 
 ## Acknowledgments
 - Oracle Java Documentation
