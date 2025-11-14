@@ -40,12 +40,12 @@ You can also add chips or a drink to your order!
 
 1. Clone the repository:
 ````bash
-git clone https://github.com/yourusername/DELI-cious.git
+git clone https://github.com/yourusername/Sub-lime-.git
 ````
 
 2. Navigate to project directory:
 ````bash
-cd DELI-cious
+cd Sub-Lime-
 ````
 
 3. Compile and run:
