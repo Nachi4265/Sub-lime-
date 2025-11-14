@@ -5,7 +5,7 @@ This project is the point of sales application for Sub-lime , a custom sandwich
 shop. This application allows you to customize a sandwich or choose signature sanwiches. 
 You can also add chips or a drink to your order!
 
-##Features 
+##Features   
 0 - Signature Sandwiches 
 
 1 - Add Sandwich 
