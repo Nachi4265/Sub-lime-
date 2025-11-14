@@ -10,8 +10,6 @@ public class Sandwich extends Product {
     private boolean isToasted;
     private List<Topping> sandwichToppings;
 
-
-
     //CONSTRUCTOR
     public Sandwich(int size, String breadType) {
         super(0, "");

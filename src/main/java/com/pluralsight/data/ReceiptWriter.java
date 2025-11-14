@@ -24,7 +24,6 @@ public class ReceiptWriter {
 
     }
 
-
     public void ensureReceiptFolderExist(){
 
         File file = new File(receiptFolder);

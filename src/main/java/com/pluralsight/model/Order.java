@@ -108,7 +108,6 @@ public class Order {
         builder.append("\n");
 
 
-
         for(Product p : products){
             builder.append(p.getDescription()+"\n");
             builder.append("Price: $" + String.format("%.2f",p.getPrice())+"\n");

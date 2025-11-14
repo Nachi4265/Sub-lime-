@@ -238,31 +238,31 @@ public class UserInterface {
         switch (choice) {
 
             case 1:
-                sauceName = "mayo";
+                sauceName = "mayo (Free) ";
                 System.out.println(" mayo selected! ");
                 break;
             case 2:
-                sauceName = "mustard";
+                sauceName = "mustard (Free) ";
                 System.out.println(" mustard selected! ");
                 break;
             case 3:
-                sauceName = "ketchup";
+                sauceName = "ketchup (Free) ";
                 System.out.println(" ketchup selected! ");
                 break;
             case 4:
-                sauceName = "ranch";
+                sauceName = "ranch (Free) ";
                 System.out.println(" ranch selected! ");
                 break;
             case 5:
-                sauceName = "thousand islands";
+                sauceName = "thousand islands  (Free) ";
                 System.out.println(" thousand islands selected! ");
                 break;
             case 6:
-                sauceName = "vinaigrette";
+                sauceName = "vinaigrette  (Free) ";
                 System.out.println(" vinaigrette selected! ");
                 break;
             case 7:
-                sauceName = "au jus";
+                sauceName = "au jus  (Free) ";
                 System.out.println(" au jus selected! ");
                 break;
             default:
@@ -293,39 +293,39 @@ public class UserInterface {
         switch (choice) {
 
             case 1:
-                toppingName = "lettuce";
+                toppingName = "lettuce  (Free) ";
                 System.out.println(" lettuce selected! ");
                 break;
             case 2:
-                toppingName = "peppers";
+                toppingName = "peppers  (Free) ";
                 System.out.println(" peppers selected! ");
                 break;
             case 3:
-                toppingName = "onions";
+                toppingName = "onions  (Free) ";
                 System.out.println(" onions selected! ");
                 break;
             case 4:
-                toppingName = "tomatoes";
+                toppingName = "tomatoes  (Free) ";
                 System.out.println(" tomatoes selected! ");
                 break;
             case 5:
-                toppingName = "jalapeños";
+                toppingName = "jalapeños  (Free) ";
                 System.out.println(" jalapeños selected! ");
                 break;
             case 6:
-                toppingName = "cucumbers";
+                toppingName = "cucumbers  (Free) ";
                 System.out.println(" cucumbers selected! ");
                 break;
             case 7:
-                toppingName = "pickles";
+                toppingName = "pickles (Free) ";
                 System.out.println(" pickles selected! ");
                 break;
             case 8:
-                toppingName = "guacamole";
+                toppingName = "guacamole (Free) ";
                 System.out.println(" guacamole selected! ");
                 break;
             case 9:
-                toppingName = "mushrooms";
+                toppingName = "mushrooms (Free) ";
                 System.out.println(" mushrooms selected! ");
                 break;
             default:
@@ -377,7 +377,7 @@ public class UserInterface {
             if (choice == 1 || choice == 2 || choice == 3 || choice ==4){
 
                 Topping topping = new Topping(sandwichCheeseTopping, "cheese", false);
-                String wantExtra = InputCollector.promptForString("Want extra cheese? (Y/N)");
+                String wantExtra = InputCollector.promptForString("Want extra cheese (¢ 0.30) ? (Y/N)");
 
                 if (wantExtra.equalsIgnoreCase("Y")) {
                     topping.setExtra(true);
@@ -389,9 +389,7 @@ public class UserInterface {
                     sandwich.addTopping(topping);
                     return;
                 }
-            }
-
-            else {
+            } else {
                 System.out.println("invalid");
             }
 
@@ -443,11 +441,13 @@ public class UserInterface {
                 System.out.println("invalid choice");
         }
 
+
+
         //Make a new topping to add based on what they chose (String for the name)
         Topping topping = new Topping(sandwichMeatTopping, "meat", false);
 
         //Ask if they want extra
-        String wantExtra = InputCollector.promptForString("Want Extra meat? (Y/N)");
+        String wantExtra = InputCollector.promptForString("Want Extra meat (¢ 0.50)? (Y/N)");
 
         if (wantExtra.equalsIgnoreCase("Y")) {
             topping.setExtra(true);
@@ -476,15 +476,15 @@ public class UserInterface {
 
             case 4:
                 sandwichLength = 4;
-                System.out.println(" 4 inch bread selected! ");
+                System.out.println(" 4 inch bread selected! ($5.50)  ");
                 break;
             case 8:
                 sandwichLength = 8;
-                System.out.println(" 8 inch bread selected! ");
+                System.out.println(" 8 inch bread selected! ($7.00) ");
                 break;
             case 12:
                 sandwichLength = 12;
-                System.out.println(" 12 inch bread selected! ");
+                System.out.println(" 12 inch bread selected! ($8.50) ");
                 break;
             default:
                 sandwichLength = 4;
@@ -529,6 +529,7 @@ public class UserInterface {
                 System.out.println("invalid choice");
 
         }
+
 
         sandwich.setBreadType(breadType);
     }
@@ -643,9 +644,9 @@ public class UserInterface {
         System.out.println();
 
         System.out.println("DRINK SIZE OPTIONS");
-        System.out.println("1) Small - $2.00");
-        System.out.println("2) Medium - $2.50");
-        System.out.println("3) Large - $3.00");
+        System.out.println("1) Small - ($2.00)");
+        System.out.println("2) Medium - ($2.50)");
+        System.out.println("3) Large - ($3.00)");
 
         int choice = InputCollector.promptForInt("Which size would you like? ");
 
@@ -696,27 +697,27 @@ public class UserInterface {
         switch (choice) {
 
             case 1:
-                chipType = "BBQ";
+                chipType = "BBQ ($1.50) ";
                 System.out.println(" BBQ Chips selected! ");
                 break;
             case 2:
-                chipType = "Sour Cream & Onion";
+                chipType = "Sour Cream & Onion ($1.50) ";
                 System.out.println(" Sour Cream & Onion Chips selected! ");
                 break;
             case 3:
-                chipType = "Salt & Vinegar";
+                chipType = "Salt & Vinegar ($1.50) ";
                 System.out.println(" Salt & Vinegar Chips selected! ");
                 break;
             case 4:
-                chipType = "Classic";
+                chipType = "Classic ($1.50) ";
                 System.out.println(" Classic Chips selected! ");
                 break;
             case 5:
-                chipType = "Cheddar";
+                chipType = "Cheddar ($1.50) ";
                 System.out.println(" Cheddar Chips selected! ");
                 break;
             case 6:
-                chipType = "Jalapeño";
+                chipType = "Jalapeño ($1.50) ";
                 System.out.println(" Jalapeño Chips selected! ");
                 break;
             default:
@@ -736,7 +737,8 @@ public class UserInterface {
 
 
     //CHECKOUT SCREEN
-    private void checkoutScreen (Order currentOrder){
+    private void checkoutScreen (Order currentOrder)
+    {
 
         ReceiptWriter receiptWriter = new ReceiptWriter();
 

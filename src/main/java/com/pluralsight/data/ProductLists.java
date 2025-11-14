@@ -5,32 +5,32 @@ public class ProductLists {
     //Sandwich components
     public static final String[] bread = {"1)-White", "2)-Wheat", "3)- Rye", "4) - Wrap"};
 
-    public static final String[] sizes = {"4\"", "8\"", "12\""};
+    public static final String[] sizes = {"4\" ($ 5.50 ) ", "8\" ($ 7.00 ) ", "12\" ($ 8.50 ) "};
 
     public static final String[] meats = {
-            "1)-Steak", "2)-Ham", "3)-Salami", "4)-Roast Beef", "5)-Chicken", "6)-Bacon"
+            "1)-Steak ($ 1.00) ", "2)-Ham ($ 1.00) ", "3)-Salami ($ 1.00) ", "4)-Roast Beef ($ 1.00) ", "5)-Chicken ($ 1.00) ", "6)-Bacon ($ 1.00) "
     };
 
     public static final String[] cheese = {
-            "1)-American", "2)-Provolone", "3)-Cheddar", "4)-Swiss"
+            "1)-American ", "2)-Provolone ", "3)-Cheddar (¢ 0.75) ", "4)-Swiss (¢ 0.75) "
     };
 
     public static final String[] regularToppings = {
-            "1)-Lettuce", "2)-Peppers", "3)-Onions", "4)-Tomatoes",
-            "5)-Jalapeños", "6)-Cucumbers", "7)-Pickles", "8)-Guacamole", "9)-Mushrooms"
+            "1)-Lettuce (Free) ", "2)-Peppers (Free) ", "3)-Onions (Free) ", "4)-Tomatoes (Free) ",
+            "5)-Jalapeños (Free) ", "6)-Cucumbers (Free) ", "7)-Pickles (Free) ", "8)-Guacamole (Free) ", "9)-Mushrooms (Free) "
     };
 
     public static final String[] sauces = {
-            "1)-Mayo", "2)-Mustard", "3)-Ketchup", "4)-Ranch",
-            "5)-Thousand Islands", "6)-Vinaigrette","7)-Au Jus"
+            "1)-Mayo (Free) ", "2)-Mustard (Free) ", "3)-Ketchup (Free) ", "4)-Ranch (Free) ",
+            "5)-Thousand Islands (Free) ", "6)-Vinaigrette (Free) ","7)-Au Jus (Free) "
     };
 
 
 
     // Other products (chips and drinks)
     public static final String[] chipTypes = {
-            "1)-BBQ", "2)-Sour Cream & Onion", "3)-Salt & Vinegar",
-            "4)-Classic", "5)-Cheddar", "6)-Jalapeño"
+            "1)-BBQ ($1.50) ", "2)-Sour Cream & Onion ($1.50) ", "3)-Salt & Vinegar ($1.50) ",
+            "4)-Classic ($1.50) ", "5)-Cheddar ($1.50) ", "6)-Jalapeño ($1.50) "
     };
 
     public static final String[] drinkFlavors = {

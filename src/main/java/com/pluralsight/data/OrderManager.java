@@ -9,7 +9,6 @@ public class OrderManager {
         this.order = new Order();
     }
 
-
     public Order getCurrentOrder(){
         return order;
     }
