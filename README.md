@@ -59,7 +59,7 @@ java Main
 -Web display  
 
 ##UML DIAGRAM  
-<img width="591" height="835" alt="Screenshot 2025-11-06 201008" src="https://github.com/user-attachments/assets/d6a18a69-031a-401c-8157-1c62ad854673" />
+<img width="814" height="850" alt="Screenshot 2025-11-13 231459" src="https://github.com/user-attachments/assets/b779e6ce-463d-410a-9aee-6f20442cac3e" />
 
 
 ## Acknowledgments
