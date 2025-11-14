@@ -1,4 +1,4 @@
-Sub-Lime Sandwich Shop Capstone
+##Sub-Lime Sandwich Shop Capstone
 
 ##Description
 This project is the point of sales application for Sub-lime , a custom sandwich 
